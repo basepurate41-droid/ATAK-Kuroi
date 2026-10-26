@@ -2004,6 +2004,7 @@ body.editor-enabled .cm-redb{display:inline-block}
 .rpa p{margin:3px 0;font-size:12px;line-height:1.4;color:#dfe4ff;word-break:break-word}
 .rpa-b{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
 .rpa-b .btn{padding:2px 9px;font-size:11px}
+.dn-nick{font-weight:700}.dn-ok{color:#7dff9b}.dn-bad{color:#ff5870}.dn-off{color:#9da8d7}.dn-id{opacity:.65;font-family:ui-monospace,Consolas,monospace;font-size:.85em}
 </style>
 
 <script>
@@ -10017,11 +10018,11 @@ function dcRepScan(){
 setInterval(dcRepScan,2500);
 
 // ---- the admin card (inside Announcements) and the settings dialog ----
-function dcSig(){const c=dcCfg();return JSON.stringify([c.on,c.url,c.ann,c.ops,c.tasks,c.rep,c.sum,c.dig,!!dcSecret(),dcUrlRaw(),dcSt.last&&dcSt.last.at,opAdmin]);}
+function dcSig(){const c=dcCfg();return JSON.stringify([c.on,c.url,c.nk,c.ann,c.ops,c.tasks,c.rep,c.sum,c.dig,!!dcSecret(),dcUrlRaw(),dcSt.last&&dcSt.last.at,opAdmin]);}
 function dcCard(){
   const c=dcCfg(),has=!!dcSecret(),on=!!c.on;
   const st=!on?['OFF','#9da8d7']:!has?['NEEDS SECRET','#ffb347']:dcUrl()?['LINKED','#7dff9b']:['NO ADDRESS','#ffb347'];
-  const cats=[c.ann!==false?'announcements':'',c.ops!==false?'operations':'',c.tasks!==false?'tasks':'',c.rep!==false?'reports':'',c.sum!==false?'live summary':'',c.dig!==false?'debriefs':''].filter(Boolean);
+  const cats=[c.ann!==false?'announcements':'',c.ops!==false?'operations':'',c.tasks!==false?'tasks':'',c.rep!==false?'reports':'',c.sum!==false?'live summary':'',c.dig!==false?'debriefs':'',c.nk!==false?'nicknames':''].filter(Boolean);
   const line=!on?'Nothing from this room goes to Discord.'
     :!has?'The room is set to post, but this device has no relay secret yet. Open Set up and paste it.'
     :!dcUrl()?'This device has the secret, but no relay address is set. Open Set up and paste the Worker address.'
@@ -10048,13 +10049,14 @@ AD_ACT['dc-set']=async function(){
     {k:'rep',type:'check',label:'Reports (casualty, incident, operation) → #reports',value:c.rep!==false},
     {k:'sum',type:'check',label:'Live room summary (one card, kept up to date) → #operations-and-tasks',value:c.sum!==false},
     {k:'dig',type:'check',label:'Debrief when an operation ends → #operations-and-tasks',value:c.dig!==false},
+    {k:'nk',type:'check',label:'Nicknames: rename members to Rank Username «Callsign» from their service file (bot needs Manage Nicknames)',value:c.nk!==false},
     {k:'secret',label:'Relay secret',opt:1,max:200,value:dcSecret(),ph:'DISCORD_RELAY_SECRET (Worker secret)',hint:'Stored on this device only. Never saved to the room.'},
     {k:'url',label:'Relay address',opt:1,max:200,value:dcUrl(),ph:'https://atak.YOURNAME.workers.dev/discord',hint:'The Cloudflare Worker address. Saved for the whole room, so other admins only need the secret.'}
   ],validate:x=>(x.url&&!/^https:\/\//i.test(x.url))?'The address must start with https://':''});
   const se=document.getElementById('adf-secret');if(se){se.type='password';se.setAttribute('autocomplete','new-password');}
   const v=await pr;if(!v)return;
   dcLS('secret',v.secret);dcLS('url','');
-  const patch={on:!!v.on,url:String(v.url||'').trim(),ann:!!v.ann,ops:!!v.ops,tasks:!!v.tasks,rep:!!v.rep,sum:!!v.sum,dig:!!v.dig,by:clientId,at:Date.now()};
+  const patch={on:!!v.on,url:String(v.url||'').trim(),ann:!!v.ann,ops:!!v.ops,tasks:!!v.tasks,rep:!!v.rep,sum:!!v.sum,dig:!!v.dig,nk:!!v.nk,by:clientId,at:Date.now()};
   opData.discord=Object.assign({},opData.discord||{},patch);
   fbPatch(opPath('discord'),patch).catch(()=>uiToast('Could not save the Discord switches.'));
   uiToast(v.on?(v.secret?'Discord link saved.':'Saved. This device still needs the relay secret to post.'):'Discord link is off.','ok');
@@ -10359,7 +10361,7 @@ AD_IMPL.career={
     det.innerHTML='<header class="cr-head" style="--sc:'+adE(i.squad?i.squad.color:'#55c9ff')+'"><button type="button" class="btn adm-bk" data-ad="split-list" title="All service files">◂</button>'
       +'<div class="cr-id">'+opAvatarHTML({avatar:i.avatar,name:i.name},76)+'<div class="cr-idt"><h3>'+adE(i.name)+'</h3><small>'+(i.username?'@'+adE(i.username):'no Roblox username')+(i.online?' · <b class="cr-live">ONLINE</b>':(i.seen?' · last seen '+adE(adAgo(i.seen)):''))+'</small>'
       +'<div class="cr-chips">'+(i.rank?'<span class="cr-chip rank">'+adE(i.rank)+'</span>':'')+(i.callSign?'<span class="cr-chip cs">«'+adE(i.callSign)+'»</span>':'')+(i.cls?'<span class="cr-chip cls">'+adE(i.cls)+'</span>':'')+'</div></div></div>'
-      +'<div class="cr-acts">'+(can?'<button type="button" class="btn active" data-ad="cr-edit" data-k="'+adE(k)+'">✎ '+(adm2?'Edit file':'Write my bio')+'</button>':'')
+      +'<div class="cr-acts">'+(can?'<button type="button" class="btn active" data-ad="cr-edit" data-k="'+adE(k)+'">✎ '+(adm2?'Edit file':'Edit my file')+'</button>':'')
       +(i.pl&&opEditor?'<button type="button" class="btn" data-ad="go" data-ch="personnel" data-sel="p:'+adE(i.pl.id)+'">☰ Personnel</button>':'')+'</div></header>'
       +'<div class="cr-scroll"><div class="cr-grid">'
       +'<section class="card adm-card cr-card"><h4>Service record</h4><dl class="cr-dl">'
@@ -10367,7 +10369,7 @@ AD_IMPL.career={
       +'<dt>Callsign</dt><dd>'+(i.callSign?'«'+adE(i.callSign)+'»':'<i>None</i>')+'</dd>'
       +'<dt>Squad</dt><dd>'+(i.squad?'<span class="sq-tag" style="--sc:'+adE(i.squad.color)+'">'+adE(i.squad.name)+(i.squad.leader?' ★':'')+'</span>'+(i.squad.former?' <small>(last known)</small>':''):'<i>No squad</i>')+'</dd>'
       +'<dt>Class</dt><dd>'+(i.cls?adE(i.cls):'<i>Not assigned</i>')+'</dd>'
-      +'<dt>Access</dt><dd>'+(i.level?'<span class="lvl lvl'+i.level+'">L'+i.level+'</span>':'<span class="lvl lvl0">L0</span>')+'</dd>'
+      +(can?'<dt>Discord</dt><dd>'+dnRow(k,i)+'</dd>':'')+'<dt>Access</dt><dd>'+(i.level?'<span class="lvl lvl'+i.level+'">L'+i.level+'</span>':'<span class="lvl lvl0">L0</span>')+'</dd>'
       +(i.joined?'<dt>On file since</dt><dd>'+adE(new Date(i.joined).toLocaleDateString([], {day:'numeric',month:'short',year:'numeric'}))+'</dd>':'')+'</dl>'
       +'<div class="cr-stats"><div><b>'+st.ops+'</b><span>Operations</span></div><div><b>'+st.tasks+'</b><span>Tasks</span></div><div><b>'+st.reports+'</b><span>Reports</span></div></div></section>'
       +'<section class="card adm-card cr-card cr-bio"><h4>Bio'+(can?'<span class="adm-h-r"><button type="button" class="btn" data-ad="cr-edit" data-k="'+adE(k)+'">✎</button></span>':'')+'</h4>'
@@ -10394,10 +10396,12 @@ AD_ACT['cr-edit']=async function(b){
     fields.push({k:'clsx',label:'Custom class',opt:true,ph:'Type one to override the list',max:32,half:true});
     fields.push({k:'cs',label:'Callsign',opt:true,value:i.callSign,max:24,hint:'The name used on the radio. Shown next to the player everywhere.'});
   }
+  fields.push({k:'dc',label:'Discord user ID',opt:true,value:i.dcId,max:20,ph:'e.g. 412345678901234567',hint:'The bot names you '+dnNick(i)+' in the Discord server. To find it: Discord → Settings → Advanced → Developer Mode on, then right-click your name → Copy User ID.'});
   fields.push({k:'bio',label:'Bio',type:'textarea',rows:6,max:900,opt:true,value:i.bio,ph:'Background, strengths, what to know about this player…'});
-  const v=await adForm({title:(admin?'Service file · ':'My bio · ')+i.name,fields:fields,focus:admin?'rank':'bio'});
+  const v=await adForm({title:(admin?'Service file · ':'My file · ')+i.name,fields:fields,focus:admin?'rank':'bio',validate:x=>{const d=String(x.dc||'').trim();if(!d)return '';if(!DN_ID.test(d))return 'A Discord user ID is 17 to 20 digits (not your @name).';const o=dnOwner(d,k);return o?'That Discord ID is already on '+crInfo(o).name+'\'s file. An admin can clear it there.':'';}});
   if(!v)return;
   const patch={bio:(v.bio||'').slice(0,900),by:crMe(),at:Date.now()};
+  {const d=String(v.dc||'').trim();if(d!==(i.dcId||''))patch.dcId=d;}
   if(admin){
     patch.rank=(v.rankx||v.rank||'').slice(0,32);patch.cls=(v.clsx||v.cls||'').slice(0,32);
     const cs=(v.cs||'').slice(0,24);
@@ -14393,6 +14397,80 @@ document.addEventListener('click',e=>{
   rdxApply(ta,lvl,!!b.dataset.all);
 });
 
+
+// ===================== V3.7 · DISCORD NICKNAMES =====================
+// A player puts their Discord user id in their service file (career/<username>/dcId; one file per id). An admin device with the
+// relay link then sets their server nickname to  RANK Username «Callsign»  (rank shortened, 32 characters at most), and again
+// whenever the rank, username or callsign changes. What was last set is kept in operation141/discord/nick/<key>, so any admin
+// device carries on, and one device at a time does it (the same claim as the live cards). Removing or changing the id gives the
+// old account its own name back. Admins switch it off with "Nicknames" in Discord → Set up… (operation141/discord/nk).
+var DN_RANK={'Recruit':'RCT','Private':'PVT','Private First Class':'PFC','Specialist':'SPC','Corporal':'CPL','Sergeant':'SGT','Staff Sergeant':'SSG','Sergeant First Class':'SFC','Master Sergeant':'MSG','Warrant Officer':'WO','Second Lieutenant':'2LT','First Lieutenant':'1LT','Captain':'CPT','Major':'MAJ','Lieutenant Colonel':'LTC','Colonel':'COL','General':'GEN'};
+const DN_ID=/^\d{17,20}$/;
+// custom ranks: initials when it is several words ("Lance Corporal" → LC), else the first 4 letters
+function dnRank(r){r=String(r||'').trim();if(!r)return '';if(DN_RANK[r])return DN_RANK[r];const w=r.split(/\s+/);return (w.length>1?w.map(x=>x[0]).join(''):r.slice(0,4)).toUpperCase().slice(0,5);}
+function dnNick(i){
+  const L=32,cp=x=>Array.from(x),r=dnRank(i.rank),u=String(i.username||i.name||'').trim();let c=String(i.callSign||'').trim();
+  const join=c=>[r,u,c?'«'+c+'»':''].filter(Boolean).join(' ');
+  let n=join(c);
+  if(cp(n).length>L&&c){const room=L-cp(join('')).length-3;c=room>=2?cp(c).slice(0,room-1).join('')+'…':'';n=join(c);}   // the callsign gives way first
+  return cp(n).slice(0,L).join('');
+}
+function dnRecs(){const m=dcCfg().nick;return m&&typeof m==='object'?m:{};}
+function dnOwner(id,except){return Object.keys(crP()).find(x=>x!==except&&crRec(x).dcId===id)||'';}
+function dnWant(k){const rec=crRec(k);return DN_ID.test(rec.dcId||'')?{id:rec.dcId,n:dnNick(crInfo(k))}:null;}
+function dnNeeds(want,last,now){
+  if(!want)return !!last;
+  if(!last||last.id!==want.id||last.n!==want.n)return true;
+  return !!last.err&&now-(last.at||0)>30*60e3;                   // Discord refused it: try again after 30 minutes, or as soon as it changes
+}
+crInfo=(f=>function(k){const o=f(k);o.dcId=crRec(k).dcId||'';return o;})(crInfo);
+function dnRow(k,i){
+  if(!i.dcId)return '<i>Not linked</i>'+(k===crMe()?' <small class="dn-id">· ✎ to add your Discord ID</small>':'');
+  const nick=dnNick(i),r=dnRecs()[dcKeyOf('n_',k)],c=dcCfg();
+  const st=!c.on||c.nk===false?'<small class="dn-off">renaming is off</small>'
+    :r&&r.id===i.dcId&&r.n===nick?(r.err?'<small class="dn-bad" title="'+adE(r.err)+'">✕ '+adE(dcClip(r.err,90))+'</small>':'<small class="dn-ok">✔ set</small>')
+    :'<small class="dn-off" title="An admin device with the Discord link sets it within seconds, or when the next one opens the room.">◔ pending</small>';
+  return '<b class="dn-nick">'+adE(nick)+'</b> '+st+'<br><small class="dn-id">ID '+adE(i.dcId)+'</small>';
+}
+var dnSt={room:'',t0:0,busy:0,bad:{}};
+function dnScan(){
+  try{
+    const c=dcCfg(),now=Date.now();
+    if(!roomPath||!dcSecret()||!dcUrl()||!c.on||c.nk===false||!opData.career)return;
+    if(dnSt.room!==roomPath){dnSt={room:roomPath,t0:now,busy:0,bad:{}};return;}
+    if(dnSt.busy||now-dnSt.t0<8000)return;                          // let the room settle after joining
+    const recs=dnRecs(),keys=new Set(Object.keys(crP()).concat(Object.values(recs).map(r=>r&&r.k).filter(Boolean)));
+    for(const k of keys){
+      if(!k||k==='_')continue;
+      const kk=dcKeyOf('n_',k);
+      if((dnSt.bad[kk]||0)>now||!dnNeeds(dnWant(k),recs[kk],now))continue;
+      dnSt.busy=1;
+      dcQ.push({what:'nickname',quiet:true,run:async()=>{try{return await dnPush(k);}catch(e){dnSt.bad[kk]=Date.now()+120000;return {ok:false,error:'Unexpected error.'};}finally{dnSt.busy=0;}}});
+      dcPump();return;                                              // one at a time, the next scan does the next one
+    }
+  }catch(e){console.error('discord nick',e);}
+}
+async function dnPush(k){
+  const kk=dcKeyOf('n_',k);
+  if(!await dcLock(kk)){dnSt.bad[kk]=Date.now()+15000;return {ok:true,skipped:1};}
+  try{
+    const want=dnWant(k),last=dnRecs()[kk];
+    if(!dnNeeds(want,last,Date.now()))return {ok:true};
+    if(last&&last.id&&!last.err&&(!want||last.id!==want.id))await dcPostNow({body:{kind:'nick',data:{user:last.id,nick:''}}});   // the old account gets its own name back
+    const mine=Object.assign({},dnRecs());
+    if(!want){
+      delete mine[kk];opData.discord=Object.assign({},opData.discord||{},{nick:mine});
+      await fbDelete(opPath('discord')+'/nick/'+kk).catch(()=>{});return {ok:true};
+    }
+    const res=await dcPostNow({body:{kind:'nick',data:{user:want.id,nick:want.n}}});
+    if(!res.ok&&!/^Discord said/.test(res.error||'')){dnSt.bad[kk]=Date.now()+120000;return res;}   // relay or network trouble: not this player's fault, try again soon
+    const nr={k:k,id:want.id,n:want.n,at:Date.now()};if(!res.ok)nr.err=dcClip(res.error,160);
+    mine[kk]=nr;opData.discord=Object.assign({},opData.discord||{},{nick:mine});
+    await fbSet(opPath('discord')+'/nick/'+kk,nr).catch(()=>{});
+    return res.ok?{ok:true}:res;
+  }finally{dcUnlock(kk);}
+}
+setInterval(dnScan,5000);
 V27=true;
 try{renderIntelList();renderGroups();renderRecent();renderRoster();renderSquads();renderReports();renderMarkerList();updateUndoUI();updateSelBar();updateStatusHint();drawMarkers();}catch(e){console.error('V2.7 init',e);}
 
