@@ -2005,6 +2005,7 @@ body.editor-enabled .cm-redb{display:inline-block}
 .rpa-b{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
 .rpa-b .btn{padding:2px 9px;font-size:11px}
 .dn-nick{font-weight:700}.dn-ok{color:#7dff9b}.dn-bad{color:#ff5870}.dn-off{color:#9da8d7}.dn-id{opacity:.65;font-family:ui-monospace,Consolas,monospace;font-size:.85em}
+.ob-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:14px;padding:16px;align-items:start}.ob-top,.ob-grp{grid-column:1/-1}.ob-grp{font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin:6px 2px -4px}.ob-unit h4 em{font-style:normal;opacity:.7;font-weight:600}.ob-id{margin-left:auto;font-style:normal;font-size:.75em;opacity:.55;font-family:ui-monospace,Consolas,monospace}.ob-row{display:flex;align-items:center;gap:10px;padding:5px 0;border-top:1px solid rgba(255,255,255,.06)}.ob-row:first-of-type{border-top:0}.ob-role{flex:0 0 44%;font-size:.85em;text-transform:uppercase;letter-spacing:.04em;opacity:.85;overflow:hidden;text-overflow:ellipsis}.ob-who{flex:1;min-width:0;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:6px 9px;color:inherit;font:inherit;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ob-who:hover:not([disabled]){border-color:rgba(85,201,255,.55)}.ob-who.none{opacity:.5;font-style:italic}.ob-who[disabled]{cursor:default}.ob-l1{font-size:.7em;padding:1px 5px;border-radius:5px;background:rgba(125,255,155,.15);color:#7dff9b}.ob-add{margin-top:8px}.ob-b{cursor:pointer;border:0;font:inherit}
 </style>
 
 <script>
@@ -6644,6 +6645,7 @@ const AD_CH=[
   ['reports','Reports','✚','','Casualty, incident and operation reports'],
   ['personnel','Personnel','☰','PERSONNEL','Players and squads'],
   ['career','Career','★','','Service file of every username: rank, callsign, squad, operation history, class, bio'],
+  ['orbat','ORBAT','⛨','','Order of battle: teams, billets and who holds them (posted to Discord)'],
   ['documents','Documents','▤','PROTOCOLS','Field guides and standing procedures: read them here, embedded live from Google'],
   ['timeline','Replay','⏵','SYSTEM','Play back an operation: what happened, and when'],
   ['console','Console','⌘','','Admin only: kick, remove, ban, refresh screens and headshots, and other commands'],
@@ -10018,11 +10020,11 @@ function dcRepScan(){
 setInterval(dcRepScan,2500);
 
 // ---- the admin card (inside Announcements) and the settings dialog ----
-function dcSig(){const c=dcCfg();return JSON.stringify([c.on,c.url,c.nk,c.ann,c.ops,c.tasks,c.rep,c.sum,c.dig,!!dcSecret(),dcUrlRaw(),dcSt.last&&dcSt.last.at,opAdmin]);}
+function dcSig(){const c=dcCfg();return JSON.stringify([c.on,c.url,c.nk,c.ob,c.ann,c.ops,c.tasks,c.rep,c.sum,c.dig,!!dcSecret(),dcUrlRaw(),dcSt.last&&dcSt.last.at,opAdmin]);}
 function dcCard(){
   const c=dcCfg(),has=!!dcSecret(),on=!!c.on;
   const st=!on?['OFF','#9da8d7']:!has?['NEEDS SECRET','#ffb347']:dcUrl()?['LINKED','#7dff9b']:['NO ADDRESS','#ffb347'];
-  const cats=[c.ann!==false?'announcements':'',c.ops!==false?'operations':'',c.tasks!==false?'tasks':'',c.rep!==false?'reports':'',c.sum!==false?'live summary':'',c.dig!==false?'debriefs':'',c.nk!==false?'nicknames':''].filter(Boolean);
+  const cats=[c.ann!==false?'announcements':'',c.ops!==false?'operations':'',c.tasks!==false?'tasks':'',c.rep!==false?'reports':'',c.sum!==false?'live summary':'',c.dig!==false?'debriefs':'',c.nk!==false?'nicknames':'',c.ob!==false?'ORBAT':''].filter(Boolean);
   const line=!on?'Nothing from this room goes to Discord.'
     :!has?'The room is set to post, but this device has no relay secret yet. Open Set up and paste it.'
     :!dcUrl()?'This device has the secret, but no relay address is set. Open Set up and paste the Worker address.'
@@ -10050,13 +10052,14 @@ AD_ACT['dc-set']=async function(){
     {k:'sum',type:'check',label:'Live room summary (one card, kept up to date) → #operations-and-tasks',value:c.sum!==false},
     {k:'dig',type:'check',label:'Debrief when an operation ends → #operations-and-tasks',value:c.dig!==false},
     {k:'nk',type:'check',label:'Nicknames: rename members to Rank Username «Callsign» from their service file (bot needs Manage Nicknames)',value:c.nk!==false},
+    {k:'ob',type:'check',label:'ORBAT: keep the roster message up to date (first post: Admin → ORBAT → Post to Discord)',value:c.ob!==false},
     {k:'secret',label:'Relay secret',opt:1,max:200,value:dcSecret(),ph:'DISCORD_RELAY_SECRET (Worker secret)',hint:'Stored on this device only. Never saved to the room.'},
     {k:'url',label:'Relay address',opt:1,max:200,value:dcUrl(),ph:'https://atak.YOURNAME.workers.dev/discord',hint:'The Cloudflare Worker address. Saved for the whole room, so other admins only need the secret.'}
   ],validate:x=>(x.url&&!/^https:\/\//i.test(x.url))?'The address must start with https://':''});
   const se=document.getElementById('adf-secret');if(se){se.type='password';se.setAttribute('autocomplete','new-password');}
   const v=await pr;if(!v)return;
   dcLS('secret',v.secret);dcLS('url','');
-  const patch={on:!!v.on,url:String(v.url||'').trim(),ann:!!v.ann,ops:!!v.ops,tasks:!!v.tasks,rep:!!v.rep,sum:!!v.sum,dig:!!v.dig,nk:!!v.nk,by:clientId,at:Date.now()};
+  const patch={on:!!v.on,url:String(v.url||'').trim(),ann:!!v.ann,ops:!!v.ops,tasks:!!v.tasks,rep:!!v.rep,sum:!!v.sum,dig:!!v.dig,nk:!!v.nk,ob:!!v.ob,by:clientId,at:Date.now()};
   opData.discord=Object.assign({},opData.discord||{},patch);
   fbPatch(opPath('discord'),patch).catch(()=>uiToast('Could not save the Discord switches.'));
   uiToast(v.on?(v.secret?'Discord link saved.':'Saved. This device still needs the relay secret to post.'):'Discord link is off.','ok');
@@ -10369,7 +10372,7 @@ AD_IMPL.career={
       +'<dt>Callsign</dt><dd>'+(i.callSign?'«'+adE(i.callSign)+'»':'<i>None</i>')+'</dd>'
       +'<dt>Squad</dt><dd>'+(i.squad?'<span class="sq-tag" style="--sc:'+adE(i.squad.color)+'">'+adE(i.squad.name)+(i.squad.leader?' ★':'')+'</span>'+(i.squad.former?' <small>(last known)</small>':''):'<i>No squad</i>')+'</dd>'
       +'<dt>Class</dt><dd>'+(i.cls?adE(i.cls):'<i>Not assigned</i>')+'</dd>'
-      +(can?'<dt>Discord</dt><dd>'+dnRow(k,i)+'</dd>':'')+'<dt>Access</dt><dd>'+(i.level?'<span class="lvl lvl'+i.level+'">L'+i.level+'</span>':'<span class="lvl lvl0">L0</span>')+'</dd>'
+      +'<dt>Billet</dt><dd>'+((b=>b.length?b.map(x=>'<button type="button" class="cr-chip rank ob-b" data-ad="go" data-ch="orbat" title="Open the ORBAT">'+adE(x)+'</button>').join(' '):'<i>None</i>')(obBillets(k)))+'</dd>'+(can?'<dt>Discord</dt><dd>'+dnRow(k,i)+'</dd>':'')+'<dt>Access</dt><dd>'+(i.level?'<span class="lvl lvl'+i.level+'">L'+i.level+'</span>':'<span class="lvl lvl0">L0</span>')+'</dd>'
       +(i.joined?'<dt>On file since</dt><dd>'+adE(new Date(i.joined).toLocaleDateString([], {day:'numeric',month:'short',year:'numeric'}))+'</dd>':'')+'</dl>'
       +'<div class="cr-stats"><div><b>'+st.ops+'</b><span>Operations</span></div><div><b>'+st.tasks+'</b><span>Tasks</span></div><div><b>'+st.reports+'</b><span>Reports</span></div></div></section>'
       +'<section class="card adm-card cr-card cr-bio"><h4>Bio'+(can?'<span class="adm-h-r"><button type="button" class="btn" data-ad="cr-edit" data-k="'+adE(k)+'">✎</button></span>':'')+'</h4>'
@@ -14471,6 +14474,214 @@ async function dnPush(k){
   }finally{dcUnlock(kk);}
 }
 setInterval(dnScan,5000);
+
+// ===================== V3.8 · ORBAT =====================
+// The unit's order of battle, kept in the room (operation141/orbat): teams with a heading, an optional (sub) line and group,
+// and slots (role name, who holds it, and whether it is a team-leader slot). A slot holds a service file ("k:<username>")
+// or a bare Discord user id ("d:<id>") for someone without a file; a bare id that matches a file's Discord ID counts as that player.
+//  · Admin → ORBAT: everyone can look, admins click a slot to fill or empty it. Console "orbat …" changes teams and role names.
+//  · Career shows each player's billets.
+//  · Team-leader slots give L1 (editor) to whoever holds them; leaving the slot takes it back, but only if the ORBAT gave it
+//    (operation141/orbat/lv remembers whom it promoted, so nobody who already was L1 or L2 is ever lowered).
+//  · Discord: ONE plain-text message in the unit's own format in the ORBAT channel (relay kind "orbat"). The first post is made
+//    by hand (Post to Discord, or "orbat post"); after that admin devices with the link edit it whenever the roster changes.
+const obTeam=()=>[{r:'Team Leader',lead:true},{r:'Assistant Team Leader'},{r:'Assaulter'},{r:'Assaulter'},{r:'Combat Life Saver'},{r:'Specialist'}];
+function obDefault(){return {title:'Untitled Unit',units:[
+  {id:'hq',head:'Task Force Headquarters',sub:'Baseplate',slots:[{r:'Commander',w:'d:1326005636005367808'},{r:'Executive Commander',w:'d:475391747384410151'},{r:'JTAC'},{r:'Troop Training Ofc',w:'d:1326005636005367808'},{r:'Troop Training Ofc',w:'d:475391747384410151'}]},
+  {id:'dozer',head:'Dozer Actual',slots:obTeam()},
+  {id:'disco',head:'Disco Actual',slots:obTeam()},
+  {id:'spike',group:'Recce Attaches',head:'Spike Team Columbia',slots:[{r:'Recon Team Leader',lead:true,w:'d:475391747384410151'},{r:'Assistant Team Leader'},{r:'Sniper'},{r:'Spotter'},{r:'Surveillance Specialist'},{r:'JTAC'}]},
+  {id:'e',group:'Aviation Wing',head:'E Squadron',sub:'Pequod',slots:[{r:'Flight Lead',lead:true},{r:'Pilot',w:'d:1175139527120146578'},{r:'Pilot'},{r:'Pilot'},{r:'Pilot'}]},
+  {id:'res',head:'Reserves',list:true,slots:['657244344859885593','707353197684981831','1068593022188667030','1128435157557330111','945985200167460906','860529601771601970'].map(d=>({w:'d:'+d}))}
+]};}
+// Firebase may hand arrays back as objects with number keys; this puts them back in order
+function obNorm(o){
+  const arr=x=>Array.isArray(x)?x.filter(Boolean):x&&typeof x==='object'?Object.keys(x).sort((a,b)=>a-b).map(k=>x[k]).filter(Boolean):[];
+  o.title=String(o.title||'Untitled Unit');
+  o.units=arr(o.units).map(u=>({id:String(u.id||''),head:String(u.head||''),sub:u.sub||'',group:u.group||'',list:!!u.list,slots:arr(u.slots).map(x=>({r:x.r||'',w:x.w||'',lead:!!x.lead}))}));
+  o.lv=o.lv&&typeof o.lv==='object'?o.lv:{};return o;
+}
+function obGet(){const r=opData.orbat;return obNorm(r&&typeof r==='object'&&r.units?JSON.parse(JSON.stringify(r)):obDefault());}
+function obSave(o,msg){
+  o.at=Date.now();o.by=crMe()||'';opData.orbat=o;
+  fbSet(opPath('orbat'),o).catch(()=>uiToast('Could not save the ORBAT. Check the connection.'));
+  adm.sig.orbat=null;adm.sig.career=null;if(adm.on)adDraw(adm.ch,true);if(msg)uiToast(msg,'ok');
+}
+function obKeyOf(w){w=String(w||'');return w.indexOf('k:')===0?w.slice(2):w.indexOf('d:')===0?dnOwner(w.slice(2),''):'';}
+function obMention(w){
+  w=String(w||'');if(!w)return '';
+  if(w.indexOf('d:')===0)return '<@'+w.slice(2)+'>';
+  const k=w.slice(2),rec=crRec(k);return DN_ID.test(rec.dcId||'')?'<@'+rec.dcId+'>':dnNick(crInfo(k));   // no Discord ID yet: their name, as text
+}
+function obLabel(w){
+  const k=obKeyOf(w);if(k){const i=crInfo(k);return (dnRank(i.rank)?dnRank(i.rank)+' ':'')+i.name;}
+  w=String(w||'');return w.indexOf('d:')===0?'Discord …'+w.slice(-4):'';
+}
+// the Discord message, in the unit's own format
+function obText(o){
+  const U=x=>String(x||'').toUpperCase(),L=['**'+U(o.title)+'**',''];let grp='';
+  o.units.forEach(u=>{
+    if(u.group&&u.group!==grp)L.push('**'+U(u.group)+':**','');
+    grp=u.group||'';
+    L.push('**'+U(u.head)+':**');if(u.sub)L.push('('+U(u.sub)+')');
+    if(u.list){const w=u.slots.map(x=>obMention(x.w)).filter(Boolean);L.push.apply(L,w.length?w:['N/A']);}
+    else{L.push('');u.slots.forEach(x=>L.push('**'+U(x.r)+':** '+(obMention(x.w)||'N/A')));}
+    L.push('');
+  });
+  return L.join('\n').trim();
+}
+function obBillets(k){const out=[];obGet().units.forEach(u=>u.slots.forEach(x=>{if(x.w&&obKeyOf(x.w)===k)out.push(u.list?u.head:x.r+' · '+u.head);}));return out;}
+function obLeads(o){const set=new Set();o.units.forEach(u=>u.slots.forEach(x=>{if(x.lead){const k=obKeyOf(x.w);if(k&&!/^id/.test(k))set.add(k);}}));return set;}
+
+// ---- the tab ----
+AD_IMPL.orbat={
+  build(p){p.innerHTML='<div class="adm-scroll"><div class="ob-wrap" id="ob-wrap"></div></div>';},
+  sig(){return JSON.stringify([opData.orbat||null,opData.career,opData.levels,dcMsgs().orbat||null,dcCfg().ob,opAdmin,obSt.err,obSt.busy]);},
+  render(p){
+    const w=$('ob-wrap');if(!w)return;
+    const o=obGet(),adm2=!!opAdmin,rec=dcMsgs().orbat,c=dcCfg(),leads=[...obLeads(o)].map(k=>crInfo(k).name);
+    const st=!rec?'Not posted to Discord yet.':'Live message in Discord · updated '+adAgo(rec.at)+(c.ob===false?' · live updates are off (Discord → Set up…)':'')+'.';
+    let h='<section class="card adm-card ob-top"><h4>'+adE(o.title)+'<span class="adm-h-r">'
+      +(adm2?'<button type="button" class="btn'+(rec?'':' active')+'" data-ad="ob-post">'+(rec?'↻ Update Discord':'⇪ Post to Discord')+'</button>':'')
+      +'<button type="button" class="btn" data-ad="ob-copy" title="Copy the Discord text">⧉ Copy</button></span></h4>'
+      +'<p class="hint">'+adE(st)+(obSt.err?' <b class="dn-bad">✕ '+adE(obSt.err)+'</b>':'')+'</p>'
+      +'<p class="hint">Team leaders (L1): '+(leads.length?adE(leads.join(', ')):'none yet')+(adm2?' · Click a slot to fill it. Teams and role names: Console → <code>orbat help</code>.':'')+'</p></section>';
+    let grp='';
+    o.units.forEach(u=>{
+      if(u.group&&u.group!==grp)h+='<div class="ob-grp">'+adE(u.group)+'</div>';
+      grp=u.group||'';
+      h+='<section class="card adm-card ob-unit"><h4>'+adE(u.head)+(u.sub?' <em>('+adE(u.sub)+')</em>':'')+'<i class="ob-id" title="Team id for the Console">'+adE(u.id)+'</i></h4>'
+        +u.slots.map((x,i)=>{const lab=x.w?obLabel(x.w):'N/A',none=!x.w;
+          return '<div class="ob-row"><span class="ob-role">'+(u.list?'#'+(i+1):adE(x.r))+(x.lead?' <b class="ob-l1" title="Whoever holds this slot gets L1 (editor)">L1</b>':'')+'</span>'
+            +'<button type="button" class="ob-who'+(none?' none':'')+'" data-ad="ob-asg" data-u="'+adE(u.id)+'" data-i="'+i+'"'+(!adm2&&!obKeyOf(x.w)?' disabled':'')+' title="'+adE(x.w&&x.w.indexOf('d:')===0?'Discord ID '+x.w.slice(2):'')+'">'+adE(lab)+'</button></div>';}).join('')
+        +(u.list&&!u.slots.length?'<div class="hint adm-empty">Nobody.</div>':'')
+        +(u.list&&adm2?'<button type="button" class="btn ob-add" data-ad="ob-asg" data-u="'+adE(u.id)+'" data-i="new">＋ Add</button>':'')+'</section>';
+    });
+    w.innerHTML=h;
+  }
+};
+AD_ACT['ob-asg']=async function(b){
+  const o=obGet(),u=o.units.find(x=>x.id===b.dataset.u);if(!u)return;
+  const add=b.dataset.i==='new',i=add?u.slots.length:+b.dataset.i,x=add?{r:'',w:''}:u.slots[i];if(!x)return;
+  if(!opAdmin){const k=obKeyOf(x.w);if(k&&window.crOpen)crOpen(k);return;}
+  const ks=crKeys().filter(k=>!/^id/.test(k)).map(k=>({k,i:crInfo(k)})).sort((a,c)=>a.i.name.localeCompare(c.i.name));
+  const cur=x.w||'',curK=cur.indexOf('k:')===0?cur.slice(2):'',curD=cur.indexOf('d:')===0?cur.slice(2):'';
+  const v=await adForm({title:u.list?u.head:x.r+' · '+u.head,intro:x.lead?'Team-leader slot: whoever holds it gets L1 (editor).':'',ok:'Save',extra:add||!cur?'':'Empty slot',fields:[
+    {k:'p',label:'Player (service file)',type:'select',value:curK,options:[{v:'',t:'— nobody —'}].concat(ks.map(y=>({v:y.k,t:y.i.name+(y.i.rank?' · '+y.i.rank:'')+(y.i.dcId?'':' · no Discord ID')})))},
+    {k:'d',label:'or a Discord user ID',opt:true,max:24,value:curD,ph:'For someone without a service file',hint:'Used only when no player is picked. In Discord they show as a mention.'}],
+    validate:y=>y.d&&!y.p&&!/^<?@?!?\d{17,20}>?$/.test(y.d)?'A Discord user ID is 17 to 20 digits.':''});
+  if(!v)return;
+  const nw=v.__extra?'':v.p?'k:'+v.p:v.d?'d:'+v.d.replace(/\D/g,''):'';
+  if(add){if(!nw)return;u.slots.push({r:'',w:nw,lead:false});}
+  else if(u.list&&!nw)u.slots.splice(i,1);
+  else x.w=nw;
+  obSave(o,(u.list?u.head:x.r)+' → '+(nw?obLabel(nw):'N/A'));
+};
+AD_ACT['ob-copy']=async function(){try{await navigator.clipboard.writeText(obText(obGet()));uiToast('ORBAT text copied.','ok');}catch(_){uiToast('Could not copy here.');}};
+AD_ACT['ob-post']=function(){try{obPostNow();uiToast('Posting the ORBAT…','ok');}catch(e){uiToast(e.message);}};
+
+// ---- Discord: one message, edited in place ----
+var obSt={room:'',t0:0,busy:0,pend:null,bad:0,lvT:0,err:''};
+function obPostNow(){
+  if(!opAdmin)throw new Error('Admins only.');
+  if(!dcSecret()||!dcUrl()||!dcCfg().on)throw new Error('The Discord link is not set up on this device (Admin → Announcements → Discord → Set up…).');
+  if(obSt.busy)throw new Error('Already posting.');
+  obQueue(true);
+}
+function obQueue(force){
+  obSt.busy=1;
+  dcQ.push({what:'ORBAT',run:async()=>{
+    try{const r=await obPush(force);obSt.err=r.ok?'':dcWhy(r);if(!r.ok)obSt.bad=Date.now()+60000;return r;}
+    catch(e){obSt.bad=Date.now()+60000;obSt.err='Unexpected error.';return {ok:false,error:obSt.err};}
+    finally{obSt.busy=0;adm.sig.orbat=null;if(adm.on&&adm.ch==='orbat')adDraw('orbat',true);}
+  }});
+  dcPump();
+}
+async function obPush(force){
+  if(!await dcLock('orbat'))return {ok:true,skipped:1};
+  try{
+    const rec=dcMsgs().orbat,text=obText(obGet()),sig=dcHash(text);
+    if(!force&&(!rec||rec.sig===sig))return {ok:true};
+    const res=await dcPostNow({body:{kind:'orbat',data:{text},msg:rec&&rec.id||''}});
+    if(!res.ok)return res;
+    const nr={id:res.id||'',ch:'orbat',sig,at:Date.now()};
+    opData.discord=Object.assign({},opData.discord||{});opData.discord.msg=Object.assign({},dcMsgs(),{orbat:nr});
+    await fbSet(opPath('discord')+'/msg/orbat',nr).catch(()=>{});
+    return {ok:true};
+  }finally{dcUnlock('orbat');}
+}
+// team leaders get L1; done by an admin device, the same answer whichever one does it
+async function obLevels(){
+  const o=obGet(),leads=obLeads(o),lv=Object.assign({},o.lv),L=opData.levels||{};let ch=0;
+  for(const k of leads){if(isRoomOwnerKey(k))continue;if((+L[k]||0)<1){await opSetLevel(k,1);lv[k]=1;ch=1;}}
+  for(const k of Object.keys(lv)){if(!leads.has(k)){if((+L[k]||0)===1)await opSetLevel(k,0);delete lv[k];ch=1;}}
+  if(ch){const cur=obGet();cur.lv=lv;obSave(cur);}
+}
+function obScan(){
+  try{
+    const now=Date.now();if(!roomPath)return;
+    if(obSt.room!==roomPath){obSt={room:roomPath,t0:now,busy:0,pend:null,bad:0,lvT:0,err:''};return;}
+    if(now-obSt.t0<8000)return;                                            // let the room settle after joining
+    if(opAdmin&&now-obSt.lvT>5000){obSt.lvT=now;obLevels().catch(()=>{});}
+    const c=dcCfg(),rec=dcMsgs().orbat;
+    if(!rec||!rec.id||!dcSecret()||!dcUrl()||!c.on||c.ob===false||obSt.busy||obSt.bad>now)return;
+    const sig=dcHash(obText(obGet()));
+    if(rec.sig===sig){obSt.pend=null;return;}
+    if(!obSt.pend||obSt.pend.sig!==sig){obSt.pend={sig,since:now};return;}  // wait until it has stayed the same for a few seconds
+    if(now-obSt.pend.since<3500)return;
+    obSt.pend=null;obQueue(false);
+  }catch(e){console.error('orbat',e);}
+}
+setInterval(obScan,2500);
+
+// ---- Console ----
+CS_CMD.orbat={u:'orbat <show|set|reserve|role|add|del|lead|unit|newunit|delunit|move|title|post|reset>',h:'Order of battle: teams, role names and who holds them. “orbat help” lists every form.'};
+const OB_HELP=['orbat show — every team with its id and slot numbers',
+  'orbat set <team> <slot#> <player|discord id|none> — fill or empty a slot',
+  'orbat reserve <player|discord id> — add someone to Reserves',
+  'orbat role <team> <slot#> <role name> — rename a role',
+  'orbat add <team> <role name> — add a slot at the end',
+  'orbat del <team> <slot#> — remove a slot',
+  'orbat lead <team> <slot#> <on|off> — team-leader slot (the holder gets L1)',
+  'orbat unit <team> <name|sub|group> <text|none> — rename a team, its (sub) line, or its group heading',
+  'orbat newunit <id> <name> — add a team (before Reserves)',
+  'orbat delunit <team> — remove a team',
+  'orbat move <team> <up|down> — change the order',
+  'orbat title <text> — the line at the top',
+  'orbat post — post the Discord message, or update it now',
+  'orbat reset — back to the built-in teams (asks first)'].join('\n');
+async function obCmd(A){
+  const sub=String(A[0]||'show').toLowerCase(),R=A.slice(1),o=obGet();
+  const team=id=>{const t=o.units.find(u=>u.id===String(id||'').toLowerCase());if(!t)throw new Error('No team “'+(id||'')+'”. Teams: '+o.units.map(u=>u.id).join(', ')+'.');return t;};
+  const slot=(u,n)=>{const i=parseInt(n,10)-1;if(!(i>=0&&i<u.slots.length))throw new Error(u.head+(u.slots.length?' has slots 1–'+u.slots.length+'.':' has no slots.'));return i;};
+  const who=a=>{a=String(a||'').trim();if(!a)throw new Error('Say who: a player, a Discord ID, or none.');if(/^(none|clear|-|n\/a)$/i.test(a))return '';
+    const m=/^<?@?!?(\d{17,20})>?$/.exec(a);if(m)return 'd:'+m[1];const x=csWho(a);if(/^id/.test(x.key))throw new Error('Guests have no service file. Use their Discord ID.');return 'k:'+x.key;};
+  const txt=(a,max)=>{const t=a.join(' ').trim().slice(0,max||40);return /^(none|clear|-)$/i.test(t)?'':t;};
+  const done=m=>{obSave(o);modLog('cmd','','ORBAT',{what:'orbat '+sub});return m;};
+  switch(sub){
+    case 'help':return OB_HELP;
+    case 'show':return o.units.map(u=>u.id+' · '+u.head+(u.sub?' ('+u.sub+')':'')+(u.group?' ['+u.group+']':'')+'\n'
+      +(u.slots.map((x,i)=>'  '+(i+1)+'. '+(u.list?'':x.r+(x.lead?' [L1]':'')+': ')+(x.w?obLabel(x.w):'N/A')).join('\n')||'  (empty)')).join('\n');
+    case 'set':{const u=team(R[0]),i=slot(u,R[1]),w=who(R.slice(2).join(' ')),r=u.list?u.head:u.slots[i].r;if(u.list&&!w)u.slots.splice(i,1);else u.slots[i].w=w;return done(r+' → '+(w?obLabel(w):'N/A'));}
+    case 'reserve':{const u=o.units.find(x=>x.list);if(!u)throw new Error('There is no list team (Reserves).');const w=who(R.join(' '));if(!w)throw new Error('Say who.');u.slots.push({r:'',w,lead:false});return done(obLabel(w)+' added to '+u.head+'.');}
+    case 'role':{const u=team(R[0]),i=slot(u,R[1]),t=txt(R.slice(2));if(u.list)throw new Error(u.head+' is a plain list, it has no role names.');if(!t)throw new Error('Give the role name.');const old=u.slots[i].r;u.slots[i].r=t;return done(old+' is now '+t+'.');}
+    case 'add':{const u=team(R[0]),t=txt(R.slice(1));if(!u.list&&!t)throw new Error('Give the role name.');if(u.list)throw new Error('Use “orbat reserve <player>” for '+u.head+'.');u.slots.push({r:t,w:'',lead:false});return done(t+' added to '+u.head+' (slot '+u.slots.length+').');}
+    case 'del':{const u=team(R[0]),i=slot(u,R[1]),x=u.slots.splice(i,1)[0];return done((x.r||obLabel(x.w)||'Slot')+' removed from '+u.head+'.');}
+    case 'lead':{const u=team(R[0]),i=slot(u,R[1]),on=/^(on|yes|true|1)$/i.test(R[2]||'');if(!/^(on|off|yes|no|true|false|1|0)$/i.test(R[2]||''))throw new Error('on or off.');u.slots[i].lead=on;return done(u.slots[i].r+(on?' is a team-leader slot (L1).':' is no longer a team-leader slot.'));}
+    case 'unit':{const u=team(R[0]),fl=String(R[1]||'').toLowerCase(),t=txt(R.slice(2),48);
+      if(fl==='name'){if(!t)throw new Error('Give the name.');u.head=t;}else if(fl==='sub')u.sub=t;else if(fl==='group')u.group=t;else throw new Error('name, sub or group.');
+      return done(u.id+': '+fl+' '+(t?'= '+t:'cleared')+'.');}
+    case 'newunit':{const id=String(R[0]||'').toLowerCase(),t=txt(R.slice(1),48);if(!/^[a-z0-9]{1,12}$/.test(id))throw new Error('The id is 1–12 letters or digits, e.g. “bravo”.');if(o.units.some(u=>u.id===id))throw new Error('There is already a team “'+id+'”.');if(!t)throw new Error('Give the name.');
+      const at=o.units.findIndex(u=>u.list);o.units.splice(at<0?o.units.length:at,0,{id,head:t,sub:'',group:'',list:false,slots:[]});return done(t+' added. Give it slots: orbat add '+id+' <role name>.');}
+    case 'delunit':{const u=team(R[0]);if(!await uiDialog({title:'Remove a team',message:'Remove '+u.head+' and its '+u.slots.length+' slot(s) from the ORBAT?',ok:'Remove'}))return 'Cancelled.';o.units.splice(o.units.indexOf(u),1);return done(u.head+' removed.');}
+    case 'move':{const u=team(R[0]),i=o.units.indexOf(u),d=/^up$/i.test(R[1]||'')?-1:/^down$/i.test(R[1]||'')?1:0;if(!d)throw new Error('up or down.');const j=i+d;if(j<0||j>=o.units.length)return u.head+' is already '+(d<0?'first.':'last.');o.units.splice(i,1);o.units.splice(j,0,u);return done(u.head+' moved '+(d<0?'up.':'down.'));}
+    case 'title':{const t=txt(R,60);if(!t)throw new Error('Give the title.');o.title=t;return done('Title: '+t+'.');}
+    case 'post':{obPostNow();return 'Posting the ORBAT to Discord…';}
+    case 'reset':{if(!await uiDialog({title:'Reset the ORBAT',message:'Go back to the built-in teams, role names and assignments? Who got L1 from it is kept track of.',ok:'Reset'}))return 'Cancelled.';const d=obNorm(obDefault());d.lv=o.lv;obSave(d);modLog('cmd','','ORBAT',{what:'orbat reset'});return 'ORBAT reset to the built-in teams.';}
+  }
+  throw new Error('Unknown: orbat '+sub+'. Type “orbat help”.');
+}
+csDo=(f=>async function(verb,args){return verb==='orbat'?obCmd(args):f(verb,args);})(csDo);
 V27=true;
 try{renderIntelList();renderGroups();renderRecent();renderRoster();renderSquads();renderReports();renderMarkerList();updateUndoUI();updateSelBar();updateStatusHint();drawMarkers();}catch(e){console.error('V2.7 init',e);}
 
