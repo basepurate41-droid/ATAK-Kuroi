@@ -2008,6 +2008,8 @@ body.editor-enabled .cm-redb{display:inline-block}
 .ob-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:14px;padding:16px;align-items:start}.ob-top,.ob-grp{grid-column:1/-1}.ob-grp{font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin:6px 2px -4px}.ob-unit h4 em{font-style:normal;opacity:.7;font-weight:600}.ob-id{margin-left:auto;font-style:normal;font-size:.75em;opacity:.55;font-family:ui-monospace,Consolas,monospace}.ob-row{display:flex;align-items:center;gap:10px;padding:5px 0;border-top:1px solid rgba(255,255,255,.06)}.ob-row:first-of-type{border-top:0}.ob-role{flex:0 0 44%;font-size:.85em;text-transform:uppercase;letter-spacing:.04em;opacity:.85;overflow:hidden;text-overflow:ellipsis}.ob-who{flex:1;min-width:0;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:6px 9px;color:inherit;font:inherit;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ob-who:hover:not([disabled]){border-color:rgba(85,201,255,.55)}.ob-who.none{opacity:.5;font-style:italic}.ob-who[disabled]{cursor:default}.ob-l1{font-size:.7em;padding:1px 5px;border-radius:5px;background:rgba(125,255,155,.15);color:#7dff9b}.ob-add{margin-top:8px}.ob-b{cursor:pointer;border:0;font:inherit}
 #sv-icon{position:fixed;top:12px;right:14px;z-index:8800;width:26px;height:26px;padding:0;border:0;border-radius:50%;background:rgba(10,14,40,.55);display:grid;place-items:center;cursor:pointer;opacity:0;visibility:hidden;transform:scale(.85);transition:opacity .35s,transform .35s,visibility 0s .35s;-webkit-tap-highlight-color:transparent}#sv-icon.on{opacity:.9;visibility:visible;transform:none;transition:opacity .2s,transform .2s}#sv-icon svg{grid-area:1/1;width:16px;height:16px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;display:none}#sv-icon .sv-spin{stroke:#9fe3ff;animation:sv-turn 1.1s linear infinite}#sv-icon .sv-off{stroke:#ffcf5a}#sv-icon .sv-ok{stroke:#7dff9b}#sv-icon.sv-busy .sv-spin,#sv-icon.sv-off .sv-off,#sv-icon.sv-done .sv-ok{display:block}#sv-icon.sv-off{box-shadow:0 0 0 1px rgba(255,207,90,.45);animation:sv-pulse 2.4s ease-in-out infinite}#sv-icon .sv-n{position:absolute;top:-5px;right:-7px;min-width:15px;height:15px;padding:0 3px;border-radius:8px;background:#ffcf5a;color:#1b1400;font:700 9px/15px system-ui,sans-serif;text-align:center}#sv-icon .sv-n:empty{display:none}#sv-icon.sv-busy .sv-n{background:#9fe3ff;color:#06283a}@keyframes sv-turn{to{transform:rotate(360deg)}}@keyframes sv-pulse{50%{opacity:.55}}@media (prefers-reduced-motion:reduce){#sv-icon .sv-spin{animation:none}#sv-icon.sv-off{animation:none}}#nq-bar{display:none!important}
 /* V3.10 · panels */body.vivid .pc-ops,body.vivid .op-brief,body.vivid .op-objs,body.vivid .cr-hist{--ac:#ff8f5a;--acr:255,143,90;--ac2:#ff5d8f;--ac2r:255,93,143;--gl:"⚑"}body.vivid .pc-ann{--ac:#ff5d73;--acr:255,93,115;--ac2:#ff9f43;--ac2r:255,159,67;--gl:"◉"}body.vivid .pc-tasks,body.vivid .op-tasks{--ac:#5ee0a0;--acr:94,224,160;--ac2:#9be564;--ac2r:155,229,100;--gl:"☑"}body.vivid .pc-req{--ac:#2bd4c0;--acr:43,212,192;--ac2:#55c9ff;--ac2r:85,201,255;--gl:"⇪"}body.vivid .op-reps{--ac:#ff6fa8;--acr:255,111,168;--ac2:#ff5d73;--ac2r:255,93,115;--gl:"✚"}body.vivid .op-intel{--ac:#b68aff;--acr:182,138,255;--ac2:#55c9ff;--ac2r:85,201,255;--gl:"▣"}body.vivid .pc-pers,body.vivid .op-units{--ac:#c0e24d;--acr:192,226,77;--ac2:#5ee0a0;--ac2r:94,224,160;--gl:"☰"}body.vivid .pc-time,body.vivid .op-upd,body.vivid .op-timers{--ac:#7ee8fa;--acr:126,232,250;--ac2:#6fa8ff;--ac2r:111,168,255;--gl:"⏵"}body.vivid .cr-card:not(.cr-hist){--ac:#ffb347;--acr:255,179,71;--ac2:#ffd45c;--ac2r:255,212,92;--gl:"★"}body.vivid .dc-card{--ac:#7b8cff;--acr:123,140,255;--ac2:#5865f2;--ac2r:88,101,242;--gl:"◎"}body.vivid #adm-main[data-ch=orbat],body.vivid .ob-unit,body.vivid .ob-top{--ac:#8fb4ff;--acr:143,180,255;--ac2:#6fa8ff;--ac2r:111,168,255;--gl:"⛨"}body.vivid #adm-rail .adm-ch[data-ch=orbat]{--ac:#8fb4ff;--acr:143,180,255}body.vivid :is([class*="pc-"],.op-brief,.op-objs,.op-tasks,.op-reps,.op-intel,.op-units,.op-upd,.op-timers,.cr-card,.dc-card,.ob-unit,.ob-top)>h4::before{content:var(--gl);background:none;transform:none;box-shadow:none;width:auto;height:auto;left:0;top:9px;margin-top:0;line-height:16px;font-size:13px;color:var(--ac);text-shadow:0 0 8px rgba(var(--acr),.8)}body.vivid .card>h4,body.vivid .card>summary{background:linear-gradient(90deg,var(--ac),rgba(var(--acr),0) 80%) left bottom/100% 2px no-repeat}body.vivid .card::after{opacity:0}body.vivid :is(.adm-grid,.cr-grid,.ob-wrap,.op-col)>.card:first-child::after,body.vivid .ov-wide::after{opacity:1}body.vivid :is(.adm-grid,.cr-grid,.ob-wrap)>.card:first-child>h4{background:linear-gradient(90deg,var(--ac),rgba(var(--acr),0) 80%) left bottom/100% 2px no-repeat,repeating-linear-gradient(-45deg,rgba(var(--acr),.5) 0 4px,transparent 4px 8px) left bottom 4px/64px 4px no-repeat}.adm-grid,.cr-grid{display:block!important;columns:290px auto;column-gap:var(--adm-gap)}.adm-grid>*,.cr-grid>*{break-inside:avoid;margin:0 0 var(--adm-gap)!important;width:100%;box-sizing:border-box}.adm-grid>.ov-wide{column-span:all}.ob-wrap{display:block;columns:300px auto;column-gap:14px}.ob-wrap>*{break-inside:avoid;margin:0 0 14px;width:100%;box-sizing:border-box}.ob-top{column-span:all}.ob-grp{grid-column:auto;margin:0 0 2px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);opacity:.85}body.vivid .cr-chip.ob-b{display:inline-block;text-align:left;padding:2px 8px;margin:0 4px 4px 0;border-radius:6px;font-size:.8em;line-height:1.35;background:rgba(143,180,255,.13);color:#d6e4ff;border:1px solid rgba(143,180,255,.4);box-shadow:none;text-shadow:none;max-width:100%;white-space:normal}.adm-card .adm-empty,.adm-card .hint.pe-none{min-height:34px;padding:6px 10px}@container (max-width:330px){.adm-card>h4{flex-wrap:wrap;row-gap:6px}.adm-card>h4 .adm-h-r{margin-left:0;flex-basis:100%;justify-content:flex-end;flex-wrap:wrap}}.op-scroll{container-type:inline-size;container-name:opd}@container opd (max-width:680px){.op-grid{grid-template-columns:minmax(0,1fr)!important}}.op-col{min-width:0}.ob-row{padding:3px 0;min-height:40px;box-sizing:border-box}.ob-role{font-size:.78em;line-height:1.15}.ob-who{padding:5px 9px;height:32px}
+/* V3.11 */.ob-drole{margin-left:8px;font-size:.72em;font-weight:700;padding:1px 6px;border-radius:5px;background:rgba(88,101,242,.22);color:#c9d0ff;border:1px solid rgba(123,140,255,.45);letter-spacing:0}.at-row{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}.at-row small{flex-basis:100%}.at-x b{font-weight:800}.at-g b{color:#7dff9b}.at-a b{color:#ffcf5a}.at-r b{color:#ff7a8a}.dv-wrap{position:relative;display:inline-flex;flex:0 0 auto;vertical-align:middle}.dv{position:absolute;right:-4px;bottom:-4px;width:17px;height:17px;border-radius:50%;background:#0d1030;border:1.5px solid #3e4aa0;display:grid;place-items:center;pointer-events:auto}.dv svg{width:11px;height:11px;fill:none;stroke:#9fe3ff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.dv-m svg{stroke:#c0e24d}body.vivid .cr-chip.cr-loa{background:rgba(255,207,90,.16);color:#ffcf5a;border:1px solid rgba(255,207,90,.5)}
+/* V4.0 */body.vivid #adm-main[data-ch=discord],body.vivid #adm-rail .adm-ch[data-ch=discord]{--ac:#7b8cff;--acr:123,140,255;--ac2:#5865f2;--ac2r:88,101,242;--gl:"◎"}body.vivid #adm-main[data-ch=fieldtools],body.vivid #adm-rail .adm-ch[data-ch=fieldtools]{--ac:#ffcf5a;--acr:255,207,90;--ac2:#ff8f5a;--ac2r:255,143,90;--gl:"✦"}body.vivid #adm-main[data-ch=moderation],body.vivid #adm-rail .adm-ch[data-ch=moderation]{--ac:#ff5d73;--acr:255,93,115;--ac2:#ff9f43;--ac2r:255,159,67;--gl:"⛔"}body.vivid #adm-main[data-ch=attendance],body.vivid #adm-rail .adm-ch[data-ch=attendance]{--ac:#c0e24d;--acr:192,226,77;--ac2:#5ee0a0;--ac2r:94,224,160;--gl:"✓"}body.vivid #adm-main[data-ch=tools],body.vivid #adm-rail .adm-ch[data-ch=tools]{--ac:#9da8d7;--acr:157,168,215;--ac2:#6fa8ff;--ac2r:111,168,255;--gl:"⚙"}body.vivid #side-panel[data-tab=view]{--ac:#ff9f43;--acr:255,159,67;--ac2:#ff5d8f;--ac2r:255,93,143;--gl:"◐"}body.vivid .tabbar button[data-tab=view]{--tc:#ff9f43;--tcr:255,159,67}#adm-rail .adm-ch[data-ch=career],#adm-rail .adm-ch[data-ch=attendance]{display:none!important}body:not(.admin-enabled) #adm-rail .adm-ch[data-ch=discord],body:not(.admin-enabled) #adm-rail .adm-ch[data-ch=moderation]{display:none!important}.adm-rail-foot .btn{flex:1 1 24px!important}.v4-gone,body.admin-enabled .v4-gone.admin-only,body.editor-enabled .v4-gone.editor-only,body.admin-enabled .card.v4-gone{display:none!important}#tab-team .v4-slim .hint,#tab-team .v4-slim .lvl-sel,#tab-team .v4-slim #op-roster .btn{display:none!important}#tab-team .v4-slim #op-roster{max-height:220px!important}#tab-team .v4-slim .op-person{padding:3px 4px}#adm-hback,#adm-link{flex:0 0 auto;min-width:32px;padding:4px 8px}#adm-substrip{display:flex;gap:4px;padding:6px 18px;border-bottom:1px solid rgba(var(--acr),.25);background:rgba(10,14,40,.5)}#adm-substrip[hidden]{display:none}#adm-substrip button.on{background:rgba(var(--acr),.28);border-color:var(--ac);color:#fff}#adm-rail .adm-ch{position:relative}#adm-rail .fav{margin-left:auto;font-style:normal;opacity:0;font-size:12px;padding:0 4px;color:#ffd45c;transition:opacity .15s}#adm-rail .adm-ch:hover .fav,#adm-rail .fav.on{opacity:.9}#adm-rail .adm-ch .adm-n{margin-left:auto}#adm-rail .adm-ch .adm-n+.fav{margin-left:4px}#tb-search{width:190px;height:28px;margin:0 8px;padding:3px 10px;font-size:12px;flex:0 1 auto;cursor:pointer}@media (max-width:980px){#tb-search{display:none}}.ov4-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}.ov4-cell{display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;padding:8px 10px;border-radius:9px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.07);color:inherit;font:inherit;min-width:0}button.ov4-cell{cursor:pointer}button.ov4-cell:hover{border-color:rgba(var(--acr),.6)}.ov4-cell small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}.ov4-cell b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}.ov4-cell em{font-style:normal;font-size:.85em;opacity:.85}.ov4-cell .btn{margin-top:2px;padding:3px 9px}.ov4-big{font-size:1.5em!important;font-weight:800;font-family:Rajdhani,sans-serif;opacity:1!important}.ov4-op .od-bar{width:100%;margin:2px 0}.ov4-me .rd-pick{display:flex;gap:3px;flex-wrap:wrap}.ov4-me .rd-pick .btn{flex:0 0 30px;width:30px;padding:2px 0;min-width:0}.ov4-it{display:flex;align-items:center;gap:10px;padding:7px 4px;border-top:1px solid rgba(255,255,255,.06)}.ov4-it:first-of-type{border-top:0}.ov4-it>i{flex:0 0 26px;height:26px;border-radius:7px;display:grid;place-items:center;font-style:normal;background:color-mix(in srgb,var(--ic) 22%,transparent);color:var(--ic)}.ov4-it>span{display:flex;flex-direction:column;min-width:0;flex:1}.ov4-it>span b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ov4-it>span small{opacity:.7;font-size:.8em}.ov4-act{flex:0 0 auto;display:flex!important;flex-direction:row!important;gap:4px}.ov4-act .btn{padding:3px 9px}.ov4-clear{padding:10px 4px;color:#7dff9b;font-weight:600}.ov4-bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:#232850;margin:4px 0 8px}.ov4-bar span{min-width:4px}.ov4-legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.82em}.ov4-legend i{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--rc);margin-right:5px}.ov4-ann time{opacity:.6;font-size:.8em}.ov4-feed>summary{cursor:pointer;font-weight:800;letter-spacing:.9px;padding:2px 0 6px 18px;position:relative}.ov4-feed[open]>summary{margin-bottom:6px}.ft-tile{display:flex!important;flex-direction:column;gap:4px;align-items:flex-start;text-align:left;cursor:pointer;color:inherit;font:inherit}.ft-ico{font-style:normal;font-size:26px;color:var(--ac);text-shadow:0 0 12px rgba(var(--acr),.7)}.ft-tile small{opacity:.75}.at-table{display:flex;flex-direction:column}.at-tr{display:grid;grid-template-columns:minmax(0,1.6fr) 1fr 1fr 48px;gap:8px;align-items:center;padding:6px 4px;border:0;border-top:1px solid rgba(255,255,255,.06);background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}.at-th{cursor:default;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;border-top:0}button.at-tr:hover{background:rgba(var(--acr),.08)}.at-tr .at-g b{color:#7dff9b}.at-tr .at-a b{color:#ffcf5a}.at-tr .at-r b{color:#ff7a8a}.bk-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:6px 18px;background:rgba(var(--acr),.14);border-bottom:1px solid rgba(var(--acr),.35)}.bk-bar[hidden]{display:none}#bk-rp-bar{padding:6px 8px;border-radius:8px;margin:6px 0}.bk-ck{float:left;margin:2px 8px 0 0}.bk-ck input{width:16px;height:16px;accent-color:var(--ac)}.v4-moved{padding:6px 2px}#sess-why{margin:10px 0 0;padding:8px 10px;border-radius:8px;background:rgba(0,0,0,.25);font-size:11px;line-height:1.45}#sess-why[hidden]{display:none}#mnav{position:fixed;left:0;right:0;bottom:0;z-index:8700;display:flex;background:linear-gradient(180deg,#151a4a,#0d1030);border-top:1px solid #3e4aa0;padding-bottom:env(safe-area-inset-bottom,0)}#mnav[hidden]{display:none}#mnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 0 5px;border:0;background:none;color:#aab4e8;font:600 10px/1.2 Rajdhani,sans-serif;letter-spacing:.06em;position:relative}#mnav button i{font-style:normal;font-size:17px}#mnav button.on{color:#fff;background:rgba(85,201,255,.12);box-shadow:inset 0 2px 0 #55c9ff}#mnav .mn-n{position:absolute;top:3px;left:calc(50% + 6px);min-width:15px;height:15px;border-radius:8px;background:#ff5870;color:#fff;font:700 9px/15px system-ui;padding:0 3px}#mnav .mn-n[hidden]{display:none}body.mnav-on #statusbar{display:none!important}body.mnav-on #main{bottom:calc(52px + env(safe-area-inset-bottom,0))!important}#mnav-sheet{position:fixed;inset:0;z-index:8690;background:rgba(5,7,25,.55)}#mnav-sheet[hidden]{display:none}.mn-sheet{position:absolute;left:0;right:0;bottom:calc(52px + env(safe-area-inset-bottom,0));max-height:70vh;overflow:auto;padding:10px 12px 14px;background:#121641;border-top:1px solid #3e4aa0;border-radius:14px 14px 0 0}.mn-grp{font:800 10px/1 Rajdhani,sans-serif;letter-spacing:.16em;color:#8f9be0;margin:8px 2px 2px}.mn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:4px 0 8px}.mn-grid button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px;border-radius:10px;border:1px solid #2c3478;background:#181d52;color:#dfe5ff;font:600 10px/1.2 Rajdhani,sans-serif}.mn-grid button i{font-style:normal;font-size:18px}.mn-grid button.on{border-color:#55c9ff}#qa-fab{position:fixed;left:14px;bottom:calc(66px + env(safe-area-inset-bottom,0));z-index:8650;display:flex;flex-direction:column;align-items:flex-start;gap:8px}#qa-fab[hidden]{display:none}.qa-main{width:52px;height:52px;border-radius:50%;border:0;background:linear-gradient(135deg,#ff6b7c,#ff9f43);color:#1a0b05;font:800 28px/1 system-ui;box-shadow:0 6px 20px rgba(0,0,0,.45)}.qa-menu{display:flex;flex-direction:column;gap:6px}.qa-menu[hidden]{display:none}.qa-menu button{padding:9px 14px;border-radius:10px;border:1px solid #3e4aa0;background:#151a4a;color:#fff;font:600 13px Rajdhani,sans-serif;text-align:left;box-shadow:0 4px 14px rgba(0,0,0,.4)}.qa-menu button[hidden]{display:none}
 </style>
 
 <script>
@@ -3500,6 +3502,7 @@ async function openIntelItem(it){
 function startPinIntel(it){
   if(!opEditor){uiToast('Level 1 (Editor) access is required to pin images to the map.');return;}
   if(String(it.id).charAt(0)==='L'){uiToast('Join a room and share the image first, then pin it.');return;}
+  if(window.adm&&adm.on)adToMap();
   closeIntelWin(it.id);setPin(it);currentMarkerType='INTEL';
   if(!placeMode)togglePlaceMode();
   const tab=document.querySelector('.tabbar button[data-tab=markers]');
@@ -5045,7 +5048,7 @@ function intelMenuItems(id){
     {label:it.name||'Intel image',head:true},
     {label:intelWins[id]?'Focus window':'Open',fn:()=>openIntelById(id)},
     {label:'Pin to map',fn:()=>pinIntelById(id),hide:!opEditor||local},
-    {label:'Pin at its grid '+(it.grid||''),fn:()=>{const xy=gridToXY(it.grid);if(xy){placeIntelPin(it,xy.x,xy.y);flyTo(xy.x,xy.y,Math.max(scale,.8));}},hide:!opEditor||!it.grid||local},
+    {label:'Pin at its grid '+(it.grid||''),fn:()=>{const xy=gridToXY(it.grid);if(xy){placeIntelPin(it,xy.x,xy.y);if(adm.on)adToMap();flyTo(xy.x,xy.y,Math.max(scale,.8));}},hide:!opEditor||!it.grid||local},
     {label:'Show its grid on the map',fn:()=>gotoGrid(it.grid),hide:!it.grid},
     {label:'Save image…',fn:()=>saveIntelImage(id)},
     '-',
@@ -6637,21 +6640,25 @@ PAL_ACTIONS.push({label:'New intel folder at the centre of the view',key:'',run:
 var adm={on:false,ch:'overview',shown:'',back:null,ready:false,sig:{},built:{},formN:0,timer:0,prev:{ann:0,intel:0}};
 const AD_IMPL={},AD_ACT={};
 const AD_CH=[
-  ['overview','Overview','◈','COMMAND','Situation at a glance'],
-  ['announcements','Announcements','◉','','Broadcasts from command'],
+  ['overview','Overview','◈','COMMAND','What is happening now, and what needs you'],
   ['operations','Operations','⚑','','Large-scale operations: briefing and objectives'],
   ['tasks','Tasks','☑','','Small-scale tasks and missions for people and squads'],
   ['messages','Messages','✎','COMMS','Room and squad chat'],
-  ['intel','Intel','▣','','Images shared with the room'],
+  ['announcements','Announcements','◉','','Broadcasts from command'],
+  ['discord','Discord','◎','','The Discord link: posting, nicknames, roles, the ORBAT message'],
   ['requests','Requests','⇪','FIELD','QRF · resupply · CAS · evac'],
   ['reports','Reports','✚','','Casualty, incident and operation reports'],
-  ['personnel','Personnel','☰','PERSONNEL','Players and squads'],
-  ['career','Career','★','','Service file of every username: rank, callsign, squad, operation history, class, bio'],
+  ['intel','Intel','▣','','Images shared with the room'],
+  ['personnel','Roster','☰','UNIT','Who is online, squads, service files and attendance'],
+  ['career','Service files','★','','Service file of every username: rank, callsign, squad, billets, attendance, bio'],
+  ['attendance','Attendance','✓','','Roll calls and operations, per player'],
   ['orbat','ORBAT','⛨','','Order of battle: teams, billets and who holds them (posted to Discord)'],
-  ['documents','Documents','▤','PROTOCOLS','Field guides and standing procedures: read them here, embedded live from Google'],
+  ['documents','Documents','▤','KNOWLEDGE','Field guides and standing procedures: read them here, embedded live from Google'],
+  ['fieldtools','Field tools','✦','','Breach Lab, radio nets, range and bearing, phonetic speller, radio calls'],
   ['timeline','Replay','⏵','SYSTEM','Play back an operation: what happened, and when'],
   ['console','Console','⌘','','Admin only: kick, remove, ban, refresh screens and headshots, and other commands'],
-  ['tools','Tools','⚙','','Admin access, map, callsigns, intel images, view and preferences, alerts, backup and moderation']
+  ['moderation','Moderation','⛔','','Bans and the moderation log'],
+  ['tools','Settings','⚙','','Admin access, view and preferences, alerts, backups, drawings, callsigns']
 ];
 const adCh=id=>AD_CH.find(c=>c[0]===id);
 const adE=opEsc;
@@ -6726,7 +6733,7 @@ function adBadges(){
   const v=document.createElement('div');v.id='admin-view';v.hidden=true;
   v.innerHTML='<nav id="adm-rail" aria-label="Admin channels"><div class="adm-brand"><b>ADMIN</b><small id="adm-room"></small></div><div class="adm-rail-list">'
     +AD_CH.map(c=>(c[3]?'<div class="adm-grp">'+c[3]+'</div>':'')+'<button type="button" class="adm-ch" data-ch="'+c[0]+'" title="'+adE(c[4])+'"><i class="ico">'+c[2]+'</i><span>'+c[1]+'</span><b class="adm-n" hidden></b></button>').join('')
-    +'</div><div class="adm-rail-foot"><span class="adm-lvl" id="adm-lvl"></span><button type="button" class="btn" data-ad="palette" title="Search everything (Ctrl+K)">⌕</button><button type="button" class="btn" data-ad="help" title="Keyboard shortcuts (?)">?</button></div></nav>'
+    +'</div><div class="adm-rail-foot"><span class="adm-lvl" id="adm-lvl"></span><button type="button" class="btn" data-ad="mark-read" title="Mark everything as read">✓</button><button type="button" class="btn" data-ad="palette" title="Search everything (Ctrl+K)">⌕</button><button type="button" class="btn" data-ad="help" title="Keyboard shortcuts (?)">?</button></div></nav>'
     +'<div id="adm-main"><header id="adm-head"><div class="adm-titles"><h2 id="adm-title"></h2><small id="adm-sub"></small></div><button type="button" class="btn adm-tomap" data-ad="tomap" title="Back to the map (A or Esc)">◂ Map</button></header><div id="adm-panes"></div></div>';
   $('main').appendChild(v);
   const pw=$('adm-panes');
@@ -9829,7 +9836,7 @@ async function dcPostNow(job){
       const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','X-Relay-Secret':dcSecret()},body:JSON.stringify(Object.assign({secret:dcSecret(),room:dcRoom(),map:dcMap()},rdxPubDeep(job.body))),signal:ac?ac.signal:undefined});
       let j=null;try{j=await r.json();}catch(_){}
       if(to)clearTimeout(to);
-      if(r.ok&&j&&j.ok)return {ok:true,channel:j.channel,id:j.id||'',edited:!!j.edited};
+      if(r.ok&&j&&j.ok)return {ok:true,channel:j.channel,id:j.id||'',edited:!!j.edited,had:!!j.had,roles:j.roles};
       return {ok:false,status:r.status,error:(j&&j.error)||('HTTP '+r.status),detail:j&&j.detail};
     }catch(e){
       if(to)clearTimeout(to);
@@ -10365,7 +10372,7 @@ AD_IMPL.career={
     const stCol=s=>(AD_OPST[s]||AD_OPST.ACTIVE);
     det.innerHTML='<header class="cr-head" style="--sc:'+adE(i.squad?i.squad.color:'#55c9ff')+'"><button type="button" class="btn adm-bk" data-ad="split-list" title="All service files">◂</button>'
       +'<div class="cr-id">'+opAvatarHTML({avatar:i.avatar,name:i.name},76)+'<div class="cr-idt"><h3>'+adE(i.name)+'</h3><small>'+(i.username?'@'+adE(i.username):'no Roblox username')+(i.online?' · <b class="cr-live">ONLINE</b>':(i.seen?' · last seen '+adE(adAgo(i.seen)):''))+'</small>'
-      +'<div class="cr-chips">'+(i.rank?'<span class="cr-chip rank">'+adE(i.rank)+'</span>':'')+(i.callSign?'<span class="cr-chip cs">«'+adE(i.callSign)+'»</span>':'')+(i.cls?'<span class="cr-chip cls">'+adE(i.cls)+'</span>':'')+'</div></div></div>'
+      +'<div class="cr-chips">'+(i.rank?'<span class="cr-chip rank">'+adE(i.rank)+'</span>':'')+(i.callSign?'<span class="cr-chip cs">«'+adE(i.callSign)+'»</span>':'')+(i.cls?'<span class="cr-chip cls">'+adE(i.cls)+'</span>':'')+(crLoa(k)?'<span class="cr-chip cr-loa" title="'+adE(crLoaTxt(crLoa(k)))+'">LOA</span>':'')+'</div></div></div>'
       +'<div class="cr-acts">'+(can?'<button type="button" class="btn active" data-ad="cr-edit" data-k="'+adE(k)+'">✎ '+(adm2?'Edit file':'Edit my file')+'</button>':'')
       +(i.pl&&opEditor?'<button type="button" class="btn" data-ad="go" data-ch="personnel" data-sel="p:'+adE(i.pl.id)+'">☰ Personnel</button>':'')+'</div></header>'
       +'<div class="cr-scroll"><div class="cr-grid">'
@@ -10374,7 +10381,7 @@ AD_IMPL.career={
       +'<dt>Callsign</dt><dd>'+(i.callSign?'«'+adE(i.callSign)+'»':'<i>None</i>')+'</dd>'
       +'<dt>Squad</dt><dd>'+(i.squad?'<span class="sq-tag" style="--sc:'+adE(i.squad.color)+'">'+adE(i.squad.name)+(i.squad.leader?' ★':'')+'</span>'+(i.squad.former?' <small>(last known)</small>':''):'<i>No squad</i>')+'</dd>'
       +'<dt>Class</dt><dd>'+(i.cls?adE(i.cls):'<i>Not assigned</i>')+'</dd>'
-      +'<dt>Billet</dt><dd>'+((b=>b.length?b.map(x=>'<button type="button" class="cr-chip rank ob-b" data-ad="go" data-ch="orbat" title="Open the ORBAT">'+adE(x)+'</button>').join(' '):'<i>None</i>')(obBillets(k)))+'</dd>'+(can?'<dt>Discord</dt><dd>'+dnRow(k,i)+'</dd>':'')+'<dt>Access</dt><dd>'+(i.level?'<span class="lvl lvl'+i.level+'">L'+i.level+'</span>':'<span class="lvl lvl0">L0</span>')+'</dd>'
+      +'<dt>Billet</dt><dd>'+((b=>b.length?b.map(x=>'<button type="button" class="cr-chip rank ob-b" data-ad="go" data-ch="orbat" title="Open the ORBAT">'+adE(x)+'</button>').join(' '):'<i>None</i>')(obBillets(k)))+'</dd>'+'<dt>Attendance</dt><dd class="at-row">'+crAttendRow(k)+'</dd>'+(crLoa(k)?'<dt>Leave</dt><dd>'+adE(crLoaTxt(crLoa(k)))+'</dd>':'')+(can?'<dt>Discord</dt><dd>'+dnRow(k,i)+'</dd>':'')+'<dt>Access</dt><dd>'+(i.level?'<span class="lvl lvl'+i.level+'">L'+i.level+'</span>':'<span class="lvl lvl0">L0</span>')+'</dd>'
       +(i.joined?'<dt>On file since</dt><dd>'+adE(new Date(i.joined).toLocaleDateString([], {day:'numeric',month:'short',year:'numeric'}))+'</dd>':'')+'</dl>'
       +'<div class="cr-stats"><div><b>'+st.ops+'</b><span>Operations</span></div><div><b>'+st.tasks+'</b><span>Tasks</span></div><div><b>'+st.reports+'</b><span>Reports</span></div></div></section>'
       +'<section class="card adm-card cr-card cr-bio"><h4>Bio'+(can?'<span class="adm-h-r"><button type="button" class="btn" data-ad="cr-edit" data-k="'+adE(k)+'">✎</button></span>':'')+'</h4>'
@@ -10402,11 +10409,18 @@ AD_ACT['cr-edit']=async function(b){
     fields.push({k:'cs',label:'Callsign',opt:true,value:i.callSign,max:24,hint:'The name used on the radio. Shown next to the player everywhere.'});
   }
   fields.push({k:'dc',label:'Discord user ID',opt:true,value:i.dcId,max:20,ph:'e.g. 412345678901234567',hint:'The bot names you '+dnNick(i)+' in the Discord server. To find it: Discord → Settings → Advanced → Developer Mode on, then right-click your name → Copy User ID.'});
+  {const l=crLoa(k),opts=(l?[{v:'keep',t:crLoaTxt(l).replace(/ · .*/,'')+' (keep)'}]:[]).concat([{v:'',t:'Not on leave'},{v:'3',t:'Leave: 3 days'},{v:'7',t:'Leave: 1 week'},{v:'14',t:'Leave: 2 weeks'},{v:'30',t:'Leave: 1 month'},{v:'open',t:'Leave: until further notice'}]);
+   fields.push({k:'loa',label:'Leave of absence',type:'select',options:opts,value:l?'keep':'',half:true,hint:'Not counted as missing roll calls or operations while away.'});
+   fields.push({k:'loaw',label:'Leave reason',opt:true,max:80,value:l&&l.why||'',half:true,ph:'e.g. exams, travelling'});}
   fields.push({k:'bio',label:'Bio',type:'textarea',rows:6,max:900,opt:true,value:i.bio,ph:'Background, strengths, what to know about this player…'});
   const v=await adForm({title:(admin?'Service file · ':'My file · ')+i.name,fields:fields,focus:admin?'rank':'bio',validate:x=>{const d=String(x.dc||'').trim();if(!d)return '';if(!DN_ID.test(d))return 'A Discord user ID is 17 to 20 digits (not your @name).';const o=dnOwner(d,k);return o?'That Discord ID is already on '+crInfo(o).name+'\'s file. An admin can clear it there.':'';}});
   if(!v)return;
   const patch={bio:(v.bio||'').slice(0,900),by:crMe(),at:Date.now()};
   {const d=String(v.dc||'').trim();if(d!==(i.dcId||''))patch.dcId=d;}
+  {const why=String(v.loaw||'').trim().slice(0,80),l=crRec(k).loa;
+   if(v.loa==='keep'){if(l&&why!==(l.why||''))patch.loa=Object.assign({},l,{why});}
+   else if(!v.loa){if(crLoa(k))patch.loa=null;}
+   else{const now=Date.now();patch.loa={from:now,until:v.loa==='open'?0:now+(+v.loa)*864e5,why};}}
   if(admin){
     patch.rank=(v.rankx||v.rank||'').slice(0,32);patch.cls=(v.clsx||v.cls||'').slice(0,32);
     const cs=(v.cs||'').slice(0,24);
@@ -11201,7 +11215,7 @@ AD_ACT['rc-close']=()=>rcClose(false);
 async function rcClose(auto){
   const r=rcOpen();if(!r||!(opAdmin||r.by===clientId)||!roomPath)return;
   const keys=rcScopeKeys(r),res=r.res||{};
-  const present=Object.keys(res),missing=keys.filter(k=>!res[k]);
+  const present=Object.keys(res),missing=keys.filter(k=>!res[k]&&!crLoa(k));
   const done=Object.assign({},r,{open:false,closedAt:trMs(),present,missing,total:keys.length,names:Object.fromEntries(Object.entries(res).map(([k,v])=>[k,v.name||k]))});
   opData.rollcall=done;
   try{await fbSet(opPath('rollcall'),done);await fbSet(opPath('rollhist')+'/'+r.id,{id:r.id,at:r.at,closedAt:done.closedAt,by:r.by,byName:r.byName,note:r.note||'',scope:r.scope,present,missing,total:keys.length,support:Object.entries(res).filter(([k,v])=>v.st==='S').map(([k])=>k)});}catch(_){uiToast('Could not close the roll call.');return;}
@@ -14500,8 +14514,8 @@ function obDefault(){return {title:'Untitled Unit',units:[
 function obNorm(o){
   const arr=x=>Array.isArray(x)?x.filter(Boolean):x&&typeof x==='object'?Object.keys(x).sort((a,b)=>a-b).map(k=>x[k]).filter(Boolean):[];
   o.title=String(o.title||'Untitled Unit');
-  o.units=arr(o.units).map(u=>({id:String(u.id||''),head:String(u.head||''),sub:u.sub||'',group:u.group||'',list:!!u.list,slots:arr(u.slots).map(x=>({r:x.r||'',w:x.w||'',lead:!!x.lead}))}));
-  o.lv=o.lv&&typeof o.lv==='object'?o.lv:{};return o;
+  o.units=arr(o.units).map(u=>({id:String(u.id||''),head:String(u.head||''),sub:u.sub||'',group:u.group||'',list:!!u.list,role:u.role||'',slots:arr(u.slots).map(x=>({r:x.r||'',w:x.w||'',lead:!!x.lead}))}));
+  o.lv=o.lv&&typeof o.lv==='object'?o.lv:{};o.rn=o.rn&&typeof o.rn==='object'?o.rn:{};return o;
 }
 function obGet(){const r=opData.orbat;return obNorm(r&&typeof r==='object'&&r.units?JSON.parse(JSON.stringify(r)):obDefault());}
 function obSave(o,msg){
@@ -14515,7 +14529,8 @@ function obMention(w){
   if(w.indexOf('d:')===0)return '<@'+w.slice(2)+'>';
   const k=w.slice(2),rec=crRec(k);return DN_ID.test(rec.dcId||'')?'<@'+rec.dcId+'>':dnNick(crInfo(k));   // no Discord ID yet: their name, as text
 }
-function obLabel(w){
+function obLabel(w){const lk=obKeyOf(w),la=lk&&crLoa(lk)?' · LOA':'';return obLabel0(w)+la;}
+function obLabel0(w){
   const k=obKeyOf(w);if(k){const i=crInfo(k);return (dnRank(i.rank)?dnRank(i.rank)+' ':'')+i.name;}
   w=String(w||'');return w.indexOf('d:')===0?'Discord …'+w.slice(-4):'';
 }
@@ -14546,12 +14561,12 @@ AD_IMPL.orbat={
     let h='<section class="card adm-card ob-top"><h4>'+adE(o.title)+'<span class="adm-h-r">'
       +(adm2?'<button type="button" class="btn'+(rec?'':' active')+'" data-ad="ob-post">'+(rec?'↻ Update Discord':'⇪ Post to Discord')+'</button>':'')
       +'<button type="button" class="btn" data-ad="ob-copy" title="Copy the Discord text">⧉ Copy</button></span></h4>'
-      +'<p class="hint">'+adE(st)+(obSt.err?' <b class="dn-bad">✕ '+adE(obSt.err)+'</b>':'')+'</p>'
+      +'<p class="hint">'+adE(st)+(obSt.err?' <b class="dn-bad">✕ '+adE(obSt.err)+'</b>':'')+(drErrs().length?' <b class="dn-bad" title="'+adE(drErrs()[0].err)+'">✕ '+drErrs().length+' Discord role change(s) refused: '+adE(dcClip(drErrs()[0].err,90))+'</b>':'')+'</p>'
       +'<p class="hint">Team leaders (L1): '+(leads.length?adE(leads.join(', ')):'none yet')+(adm2?' · Click a slot to fill it. Teams and role names: Console → <code>orbat help</code>.':'')+'</p></section>';
     let grp='';
     o.units.forEach(u=>{
       grp=u.group||'';
-      h+='<section class="card adm-card ob-unit">'+(u.group?'<div class="ob-grp">'+adE(u.group)+' ›</div>':'')+'<h4>'+adE(u.head)+(u.sub?' <em>('+adE(u.sub)+')</em>':'')+'<i class="ob-id" title="Team id for the Console">'+adE(u.id)+'</i></h4>'
+      h+='<section class="card adm-card ob-unit">'+(u.group?'<div class="ob-grp">'+adE(u.group)+' ›</div>':'')+'<h4>'+adE(u.head)+(u.sub?' <em>('+adE(u.sub)+')</em>':'')+(u.role?'<span class="ob-drole" title="Members get this Discord role">@'+adE(o.rn[u.role]||'role …'+u.role.slice(-4))+'</span>':'')+'<i class="ob-id" title="Team id for the Console">'+adE(u.id)+'</i></h4>'
         +u.slots.map((x,i)=>{const lab=x.w?obLabel(x.w):'N/A',none=!x.w;
           return '<div class="ob-row"><span class="ob-role">'+(u.list?'#'+(i+1):adE(x.r))+(x.lead?' <b class="ob-l1" title="Whoever holds this slot gets L1 (editor)">L1</b>':'')+'</span>'
             +'<button type="button" class="ob-who'+(none?' none':'')+'" data-ad="ob-asg" data-u="'+adE(u.id)+'" data-i="'+i+'"'+(!adm2&&!obKeyOf(x.w)?' disabled':'')+' title="'+adE(x.w&&x.w.indexOf('d:')===0?'Discord ID '+x.w.slice(2):'')+'">'+adE(lab)+'</button></div>';}).join('')
@@ -14624,6 +14639,7 @@ function obScan(){
     if(obSt.room!==roomPath){obSt={room:roomPath,t0:now,busy:0,pend:null,bad:0,lvT:0,err:''};return;}
     if(now-obSt.t0<8000)return;                                            // let the room settle after joining
     if(opAdmin&&now-obSt.lvT>5000){obSt.lvT=now;obLevels().catch(()=>{});}
+    drTick();
     const c=dcCfg(),rec=dcMsgs().orbat;
     if(!rec||!rec.id||!dcSecret()||!dcUrl()||!c.on||c.ob===false||obSt.busy||obSt.bad>now)return;
     const sig=dcHash(obText(obGet()));
@@ -14649,6 +14665,8 @@ const OB_HELP=['orbat show — every team with its id and slot numbers',
   'orbat delunit <team> — remove a team',
   'orbat move <team> <up|down> — change the order',
   'orbat title <text> — the line at the top',
+  'orbat roles — list the Discord server roles',
+  'orbat drole <team> <role name|role id|none> — members of the team get that Discord role',
   'orbat post — post the Discord message, or update it now',
   'orbat reset — back to the built-in teams (asks first)'].join('\n');
 async function obCmd(A){
@@ -14677,6 +14695,13 @@ async function obCmd(A){
     case 'delunit':{const u=team(R[0]);if(!await uiDialog({title:'Remove a team',message:'Remove '+u.head+' and its '+u.slots.length+' slot(s) from the ORBAT?',ok:'Remove'}))return 'Cancelled.';o.units.splice(o.units.indexOf(u),1);return done(u.head+' removed.');}
     case 'move':{const u=team(R[0]),i=o.units.indexOf(u),d=/^up$/i.test(R[1]||'')?-1:/^down$/i.test(R[1]||'')?1:0;if(!d)throw new Error('up or down.');const j=i+d;if(j<0||j>=o.units.length)return u.head+' is already '+(d<0?'first.':'last.');o.units.splice(i,1);o.units.splice(j,0,u);return done(u.head+' moved '+(d<0?'up.':'down.'));}
     case 'title':{const t=txt(R,60);if(!t)throw new Error('Give the title.');o.title=t;return done('Title: '+t+'.');}
+    case 'roles':{const l=await drFetchRoles(o);obSave(o);return l.length?l.map(x=>'@'+x.name+'   '+x.id+(x.managed?'   (bot role, cannot be given)':'')).join('\n'):'The server has no roles.';}
+    case 'drole':{const u=team(R[0]),a=R.slice(1).join(' ').trim().replace(/^@/,'');if(!a)throw new Error('Give a role name, a role id, or none.');
+      if(/^(none|clear|-)$/i.test(a)){u.role='';return done(u.head+' no longer gives a Discord role. Roles it gave are taken back.');}
+      let id=(/^<?@?&?(\d{17,20})>?$/.exec(a)||[])[1];
+      if(!id){if(!Object.keys(o.rn).length)await drFetchRoles(o);let hit=Object.keys(o.rn).filter(i=>o.rn[i].toLowerCase()===a.toLowerCase());if(!hit.length){await drFetchRoles(o);hit=Object.keys(o.rn).filter(i=>o.rn[i].toLowerCase()===a.toLowerCase());}
+        if(!hit.length)throw new Error('No Discord role called “'+a+'”. Type “orbat roles” to see them.');if(hit.length>1)throw new Error('More than one role is called “'+a+'”. Use its id (orbat roles).');id=hit[0];}
+      u.role=id;return done(u.head+' members get @'+(o.rn[id]||id)+' (the bot needs Manage Roles, with its role above it).');}
     case 'post':{obPostNow();return 'Posting the ORBAT to Discord…';}
     case 'reset':{if(!await uiDialog({title:'Reset the ORBAT',message:'Go back to the built-in teams, role names and assignments? Who got L1 from it is kept track of.',ok:'Reset'}))return 'Cancelled.';const d=obNorm(obDefault());d.lv=o.lv;obSave(d);modLog('cmd','','ORBAT',{what:'orbat reset'});return 'ORBAT reset to the built-in teams.';}
   }
@@ -14747,6 +14772,489 @@ svPaint();
 // career ★ amber, ORBAT ⛨ steel blue, Discord ◎ blurple. Overview cards take the colour of what they show (CSS: .pc-*).
 const PC_OV={'Operations':'ops','Latest announcement':'ann','My tasks':'tasks','Requests & casualties':'req','Squads':'pers','Readiness':'pers','Roll call':'pers','Timers':'time','Recent activity':'time'};
 ovCard=(f=>function(cls,title,right,body){const t=String(title||''),k=PC_OV[t]||(/^Your squad/.test(t)?'pers':'');return f((cls||'')+(k?' pc-'+k:''),title,right,body);})(ovCard);
+
+// ===================== V3.11 · DISCORD ROLES, ATTENDANCE, LEAVE =====================
+// Discord roles: an ORBAT team can be linked to a Discord role ("orbat drole <team> <role>"). Whoever holds a slot in that team
+// gets the role; leaving the team takes it away, but only if the ORBAT gave it (someone who already had it keeps it).
+// What the ORBAT did is kept in operation141/discord/droles/r<role>_u<user> = {r,u,g(1 = we gave it),at,err?}. One change at a
+// time, by an admin device with the relay link, under one claim. A refusal (permissions) is retried after 30 minutes.
+function obDid(w){w=String(w||'');if(w.indexOf('d:')===0)return w.slice(2);if(w.indexOf('k:')===0){const d=crRec(w.slice(2)).dcId;return DN_ID.test(d||'')?d:'';}return '';}
+function drWant(o){const m={};o.units.forEach(u=>{if(!DN_ID.test(u.role||''))return;u.slots.forEach(x=>{const id=obDid(x.w);if(id)m['r'+u.role+'_u'+id]={r:u.role,u:id};});});return m;}
+function drRecs(){const m=dcCfg().droles;return m&&typeof m==='object'?m:{};}
+function drNext(){
+  const want=drWant(obGet()),have=drRecs(),now=Date.now(),late=h=>h&&h.err&&now-(h.at||0)<30*60e3;
+  for(const k of Object.keys(want)){const h=have[k];if(h&&!h.err)continue;if(late(h))continue;return [k,want[k],true];}
+  for(const k of Object.keys(have)){if(want[k]||late(have[k]))continue;return [k,have[k],false];}
+  return null;
+}
+async function drDo(key,x,on){
+  if(!await dcLock('orole'))return {ok:true,skipped:1};
+  try{
+    const cur=drRecs()[key];
+    if(on&&cur&&!cur.err)return {ok:true};
+    if(!on&&!cur)return {ok:true};
+    let res={ok:true};
+    if(on||cur.g)res=await dcPostNow({body:{kind:'role',data:{user:x.u,role:x.r,on}}});   // taking away: only a role the ORBAT gave
+    if(!res.ok&&!/^Discord said/.test(res.error||''))return res;                          // relay or network trouble: try again soon
+    const p=opPath('discord')+'/droles/'+key,m=Object.assign({},drRecs());
+    if(on){const nr={r:x.r,u:x.u,g:res.ok&&!res.had?1:0,at:Date.now()};if(!res.ok)nr.err=dcClip(res.error,160);m[key]=nr;await fbSet(p,nr).catch(()=>{});}
+    else if(!res.ok){const nr=Object.assign({},cur,{err:dcClip(res.error,160),at:Date.now()});m[key]=nr;await fbSet(p,nr).catch(()=>{});}
+    else{delete m[key];await fbDelete(p).catch(()=>{});}
+    opData.discord=Object.assign({},opData.discord||{},{droles:m});adm.sig.orbat=null;
+    return {ok:true};                          // a refusal is recorded on that member (shown on the ORBAT tab); it does not hold up the others
+  }finally{dcUnlock('orole');}
+}
+function drTick(){
+  try{
+    const c=dcCfg(),now=Date.now();
+    if(!roomPath||!opAdmin||!dcSecret()||!dcUrl()||!c.on||c.ob===false||obSt.dr||(obSt.drBad||0)>now||now-obSt.t0<8000)return;
+    const n=drNext();if(!n)return;
+    obSt.dr=1;
+    dcQ.push({what:'Discord role',quiet:true,run:async()=>{try{const r=await drDo(n[0],n[1],n[2]);if(!r.ok)obSt.drBad=Date.now()+60000;return r;}catch(e){obSt.drBad=Date.now()+60000;return {ok:false,error:'Unexpected error.'};}finally{obSt.dr=0;}}});
+    dcPump();
+  }catch(e){console.error('discord roles',e);}
+}
+setInterval(drTick,3000);
+const drErrs=()=>Object.values(drRecs()).filter(h=>h&&h.err);
+async function drFetchRoles(o){
+  if(!dcSecret()||!dcUrl())throw new Error('The Discord link is not set up on this device (Admin → Announcements → Discord → Set up…).');
+  const r=await dcPostNow({body:{kind:'roles',data:{}}});if(!r.ok)throw new Error(dcWhy(r));
+  const rn={};(r.roles||[]).forEach(x=>{rn[x.id]=x.name;});o.rn=rn;return r.roles||[];
+}
+
+// Leave of absence: career/<k>/loa = {from, until (0 = until further notice), why}. While on leave a player is not counted
+// as missing a roll call or an operation; their file shows an LOA badge and their ORBAT slot says so.
+function crLoa(k,t){const l=crRec(k).loa;if(!l||!l.from)return null;t=t||Date.now();return t>=l.from&&(!l.until||t<=l.until)?l:null;}
+const crDay=t=>new Date(t).toLocaleDateString([],{day:'numeric',month:'short'});
+const crLoaTxt=l=>'On leave '+(l.until?'until '+crDay(l.until):'until further notice')+(l.why?' · '+l.why:'');
+// Attendance: the last 20 roll calls and operations since the file was opened (time on leave left out)
+function crAttend(k){
+  const rec=crRec(k),since=rec.joined||0,sq=squadOfKey(k),off=t=>!!crLoa(k,t);
+  const rc=Object.values(opData.rollhist||{}).filter(r=>r&&r.at>=since).sort((a,b)=>b.at-a.at).filter(r=>{
+    const pres=(r.present||[]).indexOf(k)>=0;if(pres)return true;if(off(r.at))return false;
+    return (r.missing||[]).indexOf(k)>=0||!r.scope||r.scope==='all'||!!(sq&&r.scope==='sq:'+sq.id);
+  }).slice(0,20);
+  const mine=new Set(crHistory(k).map(e=>e.id));
+  const ops=Object.values(opData.operations||{}).filter(o=>o&&o.id&&o.status!=='DRAFT'&&(o.at||0)>=since&&(mine.has(o.id)||!off(o.at||0))).sort((a,b)=>(b.at||0)-(a.at||0)).slice(0,20);
+  return {rcN:rc.length,rcP:rc.filter(r=>(r.present||[]).indexOf(k)>=0).length,opN:ops.length,opP:ops.filter(o=>mine.has(o.id)).length};
+}
+// Device: each device writes what it is into its own roster entry (people/<id>/dev = "pc" | "m", phones and tablets are "m"),
+// and every avatar of someone connected right now gets a small PC or phone badge.
+const DV=(()=>{try{const ua=navigator.userAgent||'',coarse=matchMedia('(pointer:coarse)').matches;return /Mobi|Android|iPhone|iPad|iPod/i.test(ua)||(coarse&&Math.min(screen.width,screen.height)<900)||(navigator.maxTouchPoints>1&&/Macintosh/.test(ua))?'m':'pc';}catch(_){return 'pc';}})();
+const dvMine=p=>roomPath&&String(p)===opPath('people')+'/'+clientId;
+var dvSet0=fbSet;fbSet=function(path,data){if(dvMine(path)&&data&&typeof data==='object'&&data.name&&data.dev!==DV)data=Object.assign({},data,{dev:DV});return dvSet0.call(this,path,data);};
+var dvPatch0=fbPatch;fbPatch=function(path,data){if(dvMine(path)&&data&&typeof data==='object'&&data.lastSeen)data=Object.assign({},data,{dev:DV});return dvPatch0.call(this,path,data);};
+const DV_SVG={pc:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/></svg>',m:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>'};
+opAvatarHTML=(f=>function(person){
+  const h=f.apply(this,arguments);
+  try{const d=person&&person.dev,live=person&&person.id&&(opData.people||{})[person.id];if((d==='pc'||d==='m')&&live)return '<span class="dv-wrap">'+h+'<i class="dv dv-'+d+'" title="'+(d==='m'?'On a phone or tablet':'On a computer')+'">'+DV_SVG[d]+'</i></span>';}catch(_){}
+  return h;
+})(opAvatarHTML);
+
+function crAttendRow(k){
+  const a=crAttend(k),bit=(p,n,what)=>{if(!n)return '<span class="at-x">'+what+': none yet</span>';const pc=Math.round(p/n*100);return '<span class="at-x at-'+(pc>=75?'g':pc>=50?'a':'r')+'"><b>'+p+'/'+n+'</b> '+what+' · '+pc+'%</span>';};
+  return bit(a.rcP,a.rcN,'roll calls')+bit(a.opP,a.opN,'operations')+'<small class="dn-id">last 20 since the file was opened'+(crRec(k).loa?', leave not counted':'')+'</small>';
+}
+// V3.11: cancelling placing mode also cancels a pending intel pin
+togglePlaceMode=(f=>function(){const r=f.apply(this,arguments);if(!placeMode&&pinIntelPending)setPin(null);return r;})(togglePlaceMode);
+
+// ===================== V4.0 · NAVIGATION =====================
+// Map panel: Me · Markers · View.  Admin: COMMAND / COMMS / FIELD / UNIT / KNOWLEDGE / SYSTEM, with Roster (Personnel +
+// Service files + Attendance under one rail entry), and Discord, Field tools and Moderation as sections of their own.
+// Everything is moved, not copied, so every id, button and saved setting keeps working.
+const V4_SITE=(()=>{try{return /^https:/.test(location.protocol)?location.origin+location.pathname:'';}catch(_){return '';}})();
+
+// ---- map panel ----
+(function(){
+  const tb=document.querySelector('.tabbar'),team=$('tab-team');if(!tb||!team)return;
+  const btn=t=>tb.querySelector('button[data-tab='+t+']');
+  const me=btn('team');if(me){me.textContent='Me';me.title='Your profile, tasks, requests and squad';}
+  const prof=$('profile-card'),board=$('tk-list')&&$('tk-list').closest('.card'),req=$('command-request-section'),sq=$('squad-card'),inbox=$('command-inbox-section'),online=$('personnel-section');
+  [prof,board,req,sq,online].forEach(c=>{if(c)team.appendChild(c);});
+  if(prof)prof.open=true;
+  if(board){const h=board.querySelector('h4');if(h&&h.firstChild&&h.firstChild.nodeType===3)h.firstChild.textContent='My tasks ';const f=$('tk-filter');if(f)f.querySelector('[data-f=mine]').classList.add('on');}
+  if(inbox)inbox.classList.add('v4-gone');                                   // Admin → Requests has the full inbox
+  if(online){online.classList.add('v4-slim');const h=online.querySelector('h4');if(h&&h.firstChild&&h.firstChild.nodeType===3)h.firstChild.textContent='Online ';}
+  ['players','comms','board'].forEach(t=>{const b=btn(t);if(b)b.remove();});
+  const vb=document.createElement('button');vb.dataset.tab='view';vb.setAttribute('role','tab');vb.textContent='View';vb.title='Coordinates, zoom and how the map looks';tb.appendChild(vb);
+  const vp=document.createElement('section');vp.className='tab-pane';vp.id='tab-view';team.parentNode.appendChild(vp);
+  const vc=$('prec-2')&&$('prec-2').closest('.card');if(vc){vc.classList.remove('adm-card');vp.appendChild(vc);}
+  const sp=$('side-panel');
+  const show=t=>{tb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.tab===t));document.querySelectorAll('.tab-pane').forEach(p=>p.classList.toggle('on',p.id==='tab-'+t));if(sp)sp.dataset.tab=t;try{localStorage.setItem('op141.ptab',t);}catch(_){}};
+  vb.addEventListener('click',()=>show('view'));
+  tb.addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(b)try{localStorage.setItem('op141.ptab',b.dataset.tab);}catch(_){}});
+  let last='team';try{last=localStorage.getItem('op141.ptab')||'team';}catch(_){}
+  show(btn(last)||last==='view'?last:'team');
+})();
+// the room link sits in the top bar
+(function(){
+  const lv=[...document.querySelectorAll('#topbar .btn')].find(b=>/Leave/.test(b.textContent||''));
+  if(!lv||!window.copyRoomLink)return;
+  const b=document.createElement('button');b.className='btn';b.type='button';b.title='Copy a link to this room';b.textContent='🔗';b.onclick=()=>copyRoomLink();lv.parentNode.insertBefore(b,lv);
+})();
+
+// ---- Roster: one rail entry, three views ----
+const V4_GROUPS={roster:[['personnel','Online & squads'],['career','Service files'],['attendance','Attendance']]};
+const v4Group=ch=>Object.keys(V4_GROUPS).find(g=>V4_GROUPS[g].some(x=>x[0]===ch))||'';
+(function(){
+  const head=$('adm-head');if(!head)return;
+  const st=document.createElement('div');st.id='adm-substrip';st.className='seg adm-segs';st.hidden=true;head.after(st);
+  st.addEventListener('click',e=>{const b=e.target.closest('button[data-ch]');if(b)adGo(b.dataset.ch);});
+  const bk=document.createElement('button');bk.type='button';bk.className='btn';bk.id='adm-hback';bk.title='Back (Alt+←)';bk.textContent='◂';bk.hidden=true;head.insertBefore(bk,head.firstChild);
+  bk.addEventListener('click',()=>v4Back());
+  const ln=document.createElement('button');ln.type='button';ln.className='btn';ln.id='adm-link';ln.title='Copy a link to this page';ln.textContent='🔗';
+  const tm=head.querySelector('.adm-tomap');head.insertBefore(ln,tm||null);ln.addEventListener('click',()=>v4CopyLink());
+})();
+var V4H={stack:[],skip:false};
+function v4Back(){const p=V4H.stack.pop();if(!p)return;V4H.skip=true;try{adGo(p);}finally{V4H.skip=false;}}
+document.addEventListener('keydown',e=>{if(e.altKey&&e.key==='ArrowLeft'&&adm.on&&V4H.stack.length){e.preventDefault();v4Back();}});
+adGo=(f=>function(ch,o){
+  const prev=adm.ch;
+  if(!V4H.skip&&adm.on&&prev&&ch&&prev!==ch){V4H.stack.push(prev);if(V4H.stack.length>30)V4H.stack.shift();}
+  const r=f.apply(this,arguments);
+  try{
+    const g=v4Group(adm.ch),st=$('adm-substrip');
+    if(g)document.querySelectorAll('#adm-rail .adm-ch[data-ch='+V4_GROUPS[g][0][0]+']').forEach(b=>b.classList.add('on'));
+    if(st){st.hidden=!g;if(g)st.innerHTML=V4_GROUPS[g].map(([c,l])=>'<button type="button" data-ch="'+c+'" class="'+(c===adm.ch?'on':'')+'">'+l+'</button>').join('');}
+    const bk=$('adm-hback');if(bk)bk.hidden=!V4H.stack.length;
+    const m=$('adm-main');if(m)m.dataset.ch=adm.ch;
+    v4Fav.paint();mnavPaint();
+  }catch(e){console.error('v4 nav',e);}
+  return r;
+})(adGo);
+
+// ---- favourites: ☆ on a rail entry pins it to the top ----
+var v4Fav={
+  list(){try{return JSON.parse(localStorage.getItem('op141.fav')||'[]').filter(c=>adCh(c));}catch(_){return [];}},
+  set(l){try{localStorage.setItem('op141.fav',JSON.stringify(l));}catch(_){}this.paint();},
+  toggle(ch){const l=this.list(),i=l.indexOf(ch);if(i>=0)l.splice(i,1);else l.push(ch);this.set(l);uiToast(i>=0?adCh(ch)[1]+' unpinned.':adCh(ch)[1]+' pinned to the top.','ok');},
+  paint(){
+    const rail=document.querySelector('#adm-rail .adm-rail-list');if(!rail)return;
+    rail.querySelectorAll('.adm-ch:not(.fav-copy)').forEach(b=>{if(!b.querySelector('.fav'))b.insertAdjacentHTML('beforeend','<i class="fav" data-fav="'+b.dataset.ch+'" title="Pin to the top">☆</i>');});
+    const l=this.list();let box=$('adm-favs');
+    if(!box){box=document.createElement('div');box.id='adm-favs';rail.insertBefore(box,rail.firstChild);}
+    box.innerHTML=l.length?'<div class="adm-grp">PINNED</div>'+l.map(c=>{const x=adCh(c);return '<button type="button" class="adm-ch fav-copy'+(adm.ch===c?' on':'')+'" data-ch="'+c+'" title="'+adE(x[4])+'"><i class="ico">'+x[2]+'</i><span>'+x[1]+'</span><i class="fav on" data-fav="'+c+'" title="Unpin">★</i></button>';}).join(''):'';
+    rail.querySelectorAll('.adm-ch:not(.fav-copy) .fav').forEach(i=>{const on=l.indexOf(i.dataset.fav)>=0;i.textContent=on?'★':'☆';i.classList.toggle('on',on);});
+  }
+};
+document.addEventListener('click',e=>{const i=e.target.closest&&e.target.closest('#adm-rail .fav');if(!i)return;e.preventDefault();e.stopPropagation();v4Fav.toggle(i.dataset.fav);},true);
+adBadges=(f=>function(){const r=f.apply(this,arguments);try{const c=adm.counts||{};document.querySelectorAll('#adm-favs .adm-ch').forEach(b=>{const n=c[b.dataset.ch]||0;let e=b.querySelector('.adm-n');if(!e){e=document.createElement('b');e.className='adm-n';b.insertBefore(e,b.querySelector('.fav'));}e.hidden=!n;e.textContent=n>99?'99+':n;});}catch(_){}return r;})(adBadges);
+AD_ACT['mark-read']=function(){
+  adMark('ann');adMark('intel');
+  try{accessibleChannels().forEach(ch=>{chSeen[ch.id]=Date.now();});if(typeof chSaveSeen==='function')chSaveSeen();}catch(_){}
+  adBadges();uiToast('Everything is marked as read.','ok');
+};
+
+// ---- links straight to a page: …/#go=operations/<id> ----
+function v4Sel(){try{return adm.ch==='operations'?(adOp.sel||''):adm.ch==='career'?(crSt.sel||''):adm.ch==='personnel'?(adPe.sel||''):'';}catch(_){return '';}}
+function v4Link(ch,sel){return (V4_SITE||location.href.split('#')[0])+'#go='+ch+(sel?'/'+encodeURIComponent(sel):'');}
+async function v4CopyLink(){const u=v4Link(adm.ch,v4Sel());try{await navigator.clipboard.writeText(u);uiToast('Link copied. It opens this page for anyone in the room.','ok');}catch(_){uiDialog({title:'Link to this page',message:'Copy this link:',input:true,value:u,readonly:true,noCancel:true});}}
+var V4DL={done:false};
+function v4ApplyLink(){
+  const m=/#go=([a-z]+)(?:\/([^&]+))?/.exec(location.hash||'');if(!m)return true;
+  if(!roomPath||!opData||!Object.keys(opData).length||!Object.keys(opData.people||{}).length)return false;
+  const ch=m[1],sel=m[2]?decodeURIComponent(m[2]):'';
+  try{history.replaceState(null,'',location.pathname+location.search);}catch(_){}
+  if(!adCh(ch))return true;
+  adminShow(true,{ch});if(sel)setTimeout(()=>AD_ACT.go({dataset:{ch,sel}}),150);
+  return true;
+}
+setInterval(()=>{if(!V4DL.done)V4DL.done=v4ApplyLink();},1000);
+window.addEventListener('hashchange',()=>{V4DL.done=false;});
+// Discord cards: the title opens that operation / task / report in ATAK
+if(V4_SITE){
+  dcOpCard=(f=>function(o){const d=f.apply(this,arguments);if(d&&o&&o.id)d.link=v4Link('operations',o.id);return d;})(dcOpCard);
+  dcTaskCard=(f=>function(t){const d=f.apply(this,arguments);if(d)d.link=v4Link('tasks');return d;})(dcTaskCard);
+  dcRepData=(f=>function(kind,r){const d=f.apply(this,arguments);if(d)d.link=v4Link('reports');return d;})(dcRepData);
+}
+
+// ---- search box in the top bar (the Ctrl+K palette) ----
+(function(){
+  const sw=$('prog-switch')||document.querySelector('#topbar h1');if(!sw)return;
+  const i=document.createElement('input');i.id='tb-search';i.className='op-input';i.placeholder='Search…   Ctrl+K';i.autocomplete='off';i.spellcheck=false;
+  sw.after(i);
+  const go=()=>{const v=i.value;i.value='';i.blur();openPalette(v);};
+  i.addEventListener('focus',go);i.addEventListener('keydown',e=>{if(e.key.length===1){e.preventDefault();i.value=e.key;go();}});
+})();
+
+// ---- new sections ----
+AD_IMPL.discord={
+  build(p){p.innerHTML='<div class="adm-scroll"><div class="adm-grid" id="adm-dcx"></div></div>';},
+  sig(){return JSON.stringify([dcSig(),dnRecs(),drRecs(),dcMsgs().orbat||null,obSt.err,opAdmin,obGet().units.map(u=>[u.id,u.role]),dcCfg().nk,dcCfg().ob]);},
+  render(){
+    const g=$('adm-dcx');if(!g)return;
+    if(!opAdmin){g.innerHTML='<section class="card adm-card dc-card ov-wide"><h4>Discord</h4><div class="hint adm-empty">Admins set up the Discord link here.</div></section>';return;}
+    const c=dcCfg(),nk=Object.values(dnRecs()).filter(Boolean),nkErr=nk.filter(x=>x.err),o=obGet(),teams=o.units.filter(u=>u.role),dr=Object.values(drRecs()).filter(Boolean),drErr=dr.filter(x=>x.err),rec=dcMsgs().orbat;
+    const onoff=v=>v===false?'<b class="dn-bad">off</b>':'<b class="dn-ok">on</b>';
+    const errs=l=>l.slice(0,6).map(x=>'<div class="tl-li"><span><b>'+adE(x.n||x.u||'')+'</b> <small class="dn-bad">'+adE(dcClip(x.err,120))+'</small></span></div>').join('');
+    g.innerHTML=dcCard().replace('class="card adm-card dc-card"','class="card adm-card dc-card ov-wide"')
+      +'<section class="card adm-card dc-card"><h4>Nicknames <small>'+onoff(c.nk)+'</small></h4><p class="hint">Players who put their Discord ID in their service file are named <b>Rank Username «Callsign»</b>.</p>'
+        +'<div class="rc-n"><b>'+nk.filter(x=>!x.err).length+'</b> set'+(nkErr.length?' · <b class="dn-bad">'+nkErr.length+' refused</b>':'')+'</div>'+errs(nkErr)+'</section>'
+      +'<section class="card adm-card dc-card"><h4>Roles from the ORBAT <small>'+onoff(c.ob)+'</small></h4>'
+        +(teams.length?teams.map(u=>'<div class="tl-li"><span><b>'+adE(u.head)+'</b> <span class="ob-drole">@'+adE(o.rn[u.role]||'role …'+u.role.slice(-4))+'</span></span><small>'+dr.filter(x=>x.r===u.role&&!x.err).length+' given</small></div>').join(''):'<div class="hint">No team gives a role yet. Console: <code>orbat drole &lt;team&gt; &lt;role&gt;</code>.</div>')
+        +(drErr.length?'<div class="sym-cat">Refused</div>'+errs(drErr):'')+'</section>'
+      +'<section class="card adm-card dc-card"><h4>ORBAT message</h4><p class="hint">'+(rec?'Live in Discord, updated '+adE(adAgo(rec.at))+'.':'Not posted yet.')+(obSt.err?' <b class="dn-bad">✕ '+adE(obSt.err)+'</b>':'')+'</p>'
+        +'<div class="btn-row"><button type="button" class="btn'+(rec?'':' active')+'" data-ad="ob-post">'+(rec?'↻ Update now':'⇪ Post to Discord')+'</button><button type="button" class="btn" data-ad="go" data-ch="orbat">⛨ Open ORBAT</button></div></section>'
+      +'<section class="card adm-card dc-card"><h4>Slash commands</h4><p class="hint"><code>/sitrep</code> <code>/roster</code> <code>/ops</code> <code>/tasks</code> <code>/headshots</code> answer in Discord from this room.'+(dcUrl()?' Check them on the <a href="'+adE(dcUrl().replace(/discord\/?$/,'interactions'))+'" target="_blank" rel="noopener">status page</a>.':'')+'</p></section>';
+  }
+};
+AD_IMPL.fieldtools={
+  build(p){p.innerHTML='<div class="adm-scroll"><div class="adm-grid" id="adm-ft"></div></div>';},
+  sig(){return 'ft';},
+  render(){
+    const g=$('adm-ft');if(!g)return;
+    const T=[['breach','⌖','Breach Lab','Plan, watch and drill a door breach'],['nets','⌁','Radio nets','The frequency plan: tune with \\ and 3 digits'],['range','➚','Range and bearing','Two grids: distance, bearing, travel time'],['speller','Aa','Phonetic speller','Say it the way the radio guide wants it'],['calls','☏','Radio call builder','Fill in the blanks, read the call out']];
+    g.innerHTML=T.map(t=>'<button type="button" class="card adm-card ft-tile" data-ft="'+t[0]+'"><i class="ft-ico">'+t[1]+'</i><b>'+t[2]+'</b><small>'+t[3]+'</small></button>').join('');
+  }
+};
+document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-ft]');if(t)blOpenTool(t.dataset.ft);});
+AD_IMPL.moderation={
+  build(p){p.innerHTML='<div class="adm-scroll"><div class="adm-grid" id="adm-mod"></div></div>';},
+  sig(){return modBans().length+'.'+modList().length+'.'+(modList()[0]||{}).at+opAdmin;},
+  render(){
+    const g=$('adm-mod');if(!g)return;
+    if(!opAdmin){g.innerHTML='<section class="card adm-card ov-wide"><h4>Moderation</h4><div class="hint adm-empty">Admins only.</div></section>';return;}
+    modPaint();const c=$('mod-card');if(c&&c.parentNode!==g){c.classList.add('ov-wide');g.appendChild(c);}
+  }
+};
+AD_IMPL.attendance={
+  build(p){p.innerHTML='<div class="adm-scroll"><div class="adm-grid" id="adm-att"></div></div>';},
+  sig(){return JSON.stringify([opData.rollhist,opData.operations&&Object.keys(opData.operations).length,opData.career,opData.squadOf]);},
+  render(){
+    const g=$('adm-att');if(!g)return;
+    const rows=crKeys().filter(k=>!/^id/.test(k)).map(k=>{const a=crAttend(k),i=crInfo(k),pc=a.rcN?Math.round(a.rcP/a.rcN*100):-1,po=a.opN?Math.round(a.opP/a.opN*100):-1;return {k,i,a,pc,po,loa:crLoa(k)};})
+      .sort((x,y)=>(y.pc+y.po)-(x.pc+x.po)||x.i.name.localeCompare(y.i.name));
+    const cell=(p,n,pc)=>n?'<span class="at-'+(pc>=75?'g':pc>=50?'a':'r')+'"><b>'+p+'/'+n+'</b> '+pc+'%</span>':'<span class="dn-off">—</span>';
+    g.innerHTML='<section class="card adm-card ov-wide pc-pers"><h4>Attendance <small>last 20 roll calls and operations since each file was opened · leave not counted</small></h4>'
+      +(rows.length?'<div class="at-table"><div class="at-tr at-th"><span>Player</span><span>Roll calls</span><span>Operations</span><span></span></div>'
+        +rows.map(r=>'<button type="button" class="at-tr" data-ad="go" data-ch="career" data-sel="'+adE(r.k)+'"><span><b>'+adE(r.i.name)+'</b>'+(r.i.rank?' <small>'+adE(dnRank(r.i.rank))+'</small>':'')+'</span><span>'+cell(r.a.rcP,r.a.rcN,r.pc)+'</span><span>'+cell(r.a.opP,r.a.opN,r.po)+'</span><span>'+(r.loa?'<i class="cr-chip cr-loa">LOA</i>':'')+'</span></button>').join('')+'</div>'
+        :'<div class="hint adm-empty">No service files yet.</div>')+'</section>';
+  }
+};
+// Announcements no longer carries the Discord card (it has its own section)
+AD_IMPL.announcements.render=(f=>function(p){const r=f.apply(this,arguments);const w=$('adm-dc-wrap');if(w)w.innerHTML=opAdmin?'<div class="hint v4-moved">Discord posting is set up in <button type="button" class="adm-oplink" data-ad="go" data-ch="discord">◎ Discord</button>.</div>':'';return r;})(AD_IMPL.announcements.render);
+// Settings no longer shows the intel uploader (Intel has it)
+(function(){const i=$('intel-image-file');const c=i&&i.closest('.card');if(c)c.classList.add('v4-gone');})();
+// what moved: once per device
+adminShow=(f=>function(on){const r=f.apply(this,arguments);try{if(on&&adm.on&&localStorage.getItem('op141.v4seen')!=='1'){localStorage.setItem('op141.v4seen','1');setTimeout(()=>uiDialog({title:'ATAK V4: what moved',message:'Map panel: Team is now Me (profile, your tasks, requests, squad, who is online); the View tab has the coordinate format and zoom; Players moved to Admin → Roster.\n\nAdmin: Roster holds Online & squads, Service files and Attendance. Discord, Field tools and Moderation have their own sections. Tools is now Settings.\n\nNew: a search box in the top bar, ◂ Back, 🔗 links to a page, ☆ to pin a section to the top, ✓ to mark everything read, and a bottom bar on phones.',ok:'Got it',noCancel:true}),600);}}catch(_){}mnavPaint();return r;})(adminShow);
+
+// ===================== V4.0 · OVERVIEW =====================
+// Three zones: Now (one strip), Needs attention (one list, most urgent first, with the action on each line), the unit at a glance.
+function ov4Now(){
+  const op=adOps().filter(o=>o.status==='ACTIVE'||o.status==='HOLD').sort((a,b)=>(a.status==='ACTIVE'?0:1)-(b.status==='ACTIVE'?0:1)||(b.upd||b.at||0)-(a.upd||a.at||0))[0];
+  const tm=tmList().filter(t=>t.at>trMs()).sort((a,b)=>a.at-b.at)[0],rc=rcCur(),online=Object.keys(opData.people||{}).length,cur=rdMine();
+  let opc;
+  if(op){const pg=adProg(op),st=AD_OPST[op.status]||AD_OPST.ACTIVE;
+    opc='<button type="button" class="ov4-cell ov4-op" data-ad="go" data-ch="operations" data-sel="'+adE(op.id)+'" style="--sc:'+st.c+'"><small>Operation</small><b>'+adE(op.name)+'</b><span class="od-bar"><span style="width:'+pg.pct+'%"></span></span><em>'+pg.done+'/'+pg.total+' objectives'+(adOpAcked(op)?'':' · <u>briefing not read</u>')+'</em></button>';}
+  else opc='<div class="ov4-cell"><small>Operation</small><b>None running</b>'+(opAdmin?'<button type="button" class="btn" data-ad="go" data-ch="operations">＋ Plan</button>':'')+'</div>';
+  const tmc='<div class="ov4-cell"><small>Next timer</small>'+(tm?'<b>'+adE(tm.label)+'</b><em class="ov4-big" data-tm="'+adE(tm.id)+'">'+tmFmt(tm.at-trMs())+'</em>':'<b class="dn-off">None</b>'+(opAdmin?'<button type="button" class="btn" data-ad="tm-new">＋ Timer</button>':''))+'</div>';
+  let rcc;
+  if(rc&&rc.open){const keys=rcScopeKeys(rc),res=rc.res||{},n=keys.filter(k=>res[k]).length,mine=res[myKey()];
+    rcc='<div class="ov4-cell"><small>Roll call · open</small><b>'+n+' / '+keys.length+' checked in</b>'+(mine?'<em class="dn-ok">✔ You checked in</em>':'<button type="button" class="btn active" data-ad="rc-present">✔ Check in</button>')+'</div>';}
+  else rcc='<div class="ov4-cell"><small>Roll call</small><b>'+(rc?(rc.present||[]).length+' / '+(rc.total||0)+' last time':'None yet')+'</b>'+((opAdmin||ldSquad())?'<button type="button" class="btn" data-ad="rc-start">📣 Start</button>':'')+'</div>';
+  const pc='<button type="button" class="ov4-cell" data-ad="go" data-ch="personnel"><small>Online</small><b class="ov4-big">'+online+'</b><em>Roster ▸</em></button>';
+  const mc='<div class="ov4-cell ov4-me"><small>My status</small><div class="rd-pick">'+Object.keys(RD).map(c=>'<button type="button" class="btn'+(cur===c?' active':'')+'" style="--rc:'+RD[c][1]+'" data-ad="rd-set" data-rd="'+c+'" title="'+RD[c][0]+'">'+RD[c][2]+'</button>').join('')+'</div><em>'+(cur?RD[cur][0]:'Not set')+'</em></div>';
+  return '<section class="card adm-card ov-wide ov4-now pc-ops"><div class="ov4-strip">'+opc+tmc+rcc+pc+mc+'</div></section>';
+}
+function ov4Items(){
+  const it=[],me=myKey(),add=(pri,ico,col,t,sub,act,at)=>it.push({pri,ico,col,t,sub,act,at:at||0});
+  const rc=rcCur();if(rc&&rc.open&&!(rc.res||{})[me]&&rcInScope(rc,me))add(0,'📣','#ffcf5a','Roll call: check in',rc.note||'Command wants to know who is here','<button type="button" class="btn active" data-ad="rc-present">✔ Check in</button>',rc.at);
+  Object.values(opData.requests||{}).filter(r=>r&&((r.status||'OPEN')==='OPEN'||r.status==='ACKNOWLEDGED')&&(opAdmin||r.from===clientId||(mySquad()&&r.squad===mySquad().id))).forEach(r=>{
+    const pri=r.prio==='urgent'?0:r.prio==='priority'?1:2;add(pri,'⇪',pri===0?'#ff5870':'#2bd4c0',(r.type||'Request')+(r.by?' from '+r.by:''),[r.status||'OPEN',r.grid,r.prio&&r.prio!=='routine'?r.prio.toUpperCase():''].filter(Boolean).join(' · '),'<button type="button" class="btn" data-ad="go" data-ch="requests">Open ▸</button>',r.at);});
+  if(opEditor)repAll().filter(r=>repVisible(r)&&repStatus(r)!=='RESOLVED').forEach(r=>{
+    const cas=r.kind==='casualty';add(cas&&repStatus(r)==='OPEN'?0:1,cas?'✚':'⚠','#ff6fa8',repTitle(r)+(r.who?' · '+r.who:''),[repStatus(r),r.grid,r.medevac?'MEDEVAC':''].filter(Boolean).join(' · '),'<button type="button" class="btn" data-ad="rp-show" data-rid="'+adE(r.id)+'">◎</button><button type="button" class="btn" data-ad="go" data-ch="reports">Open ▸</button>',r.at);});
+  Object.values(opData.tasks||{}).filter(t=>t&&taskIsMine(t)&&t.status!=='DONE').forEach(t=>{
+    const st=t.status||'OPEN',id=adSlug(t.id);add(t.prio==='critical'?0:t.prio==='high'?1:2,'☑','#5ee0a0',t.title,(st==='ACTIVE'?'In progress':'Waiting for you')+(t.grid?' · '+t.grid:''),'<button type="button" class="btn'+(st==='ACTIVE'?' active':'')+'" onclick="opTaskStatus(\''+id+'\',\''+(st==='ACTIVE'?'DONE':'ACTIVE')+'\')">'+(st==='ACTIVE'?'Complete':'Accept')+'</button>',t.at);});
+  adOps().filter(o=>o.status==='ACTIVE'&&!adOpAcked(o)).forEach(o=>add(1,'⚑','#ff8f5a','Read the briefing: '+o.name,'You have not read it yet','<button type="button" class="btn" data-ad="go" data-ch="operations" data-sel="'+adE(o.id)+'">Read ▸</button>',o.at));
+  if(opAdmin){
+    const n=(typeof drErrs==='function'?drErrs().length:0)+Object.values(dnRecs()).filter(x=>x&&x.err).length+(obSt.err?1:0);
+    if(n)add(2,'◎','#7b8cff','Discord refused '+n+' change'+(n>1?'s':''),'Usually a missing permission or a role order problem','<button type="button" class="btn" data-ad="go" data-ch="discord">Discord ▸</button>',Date.now());
+  }
+  return it.sort((a,b)=>a.pri-b.pri||b.at-a.at);
+}
+function ov4Attention(){
+  const it=ov4Items(),show=it.slice(0,8);
+  const rows=show.map(x=>'<div class="ov4-it" style="--ic:'+x.col+'"><i>'+x.ico+'</i><span><b>'+adE(x.t)+'</b><small>'+adE(x.sub||'')+'</small></span><span class="ov4-act">'+x.act+'</span></div>').join('');
+  return '<section class="card adm-card ov-wide ov4-att pc-ann"><h4>Needs attention'+(it.length?' <small>'+it.length+'</small>':'')+'</h4>'
+    +(rows||'<div class="ov4-clear">✔ All clear. Nothing needs you right now.</div>')+(it.length>8?'<div class="hint">+'+(it.length-8)+' more in their sections.</div>':'')+'</section>';
+}
+function ov4Ready(){
+  const ps=Object.values(opData.people||{}).filter(p=>p&&(p.name||p.displayName)),cnt={};let unset=0;
+  ps.forEach(p=>{const c=rdOf(p);if(c)cnt[c]=(cnt[c]||0)+1;else unset++;});
+  const tot=ps.length||1,seg=(n,col,t)=>n?'<span style="flex:'+n+';background:'+col+'" title="'+t+': '+n+'"></span>':'';
+  return ovCard('pc-pers','Readiness','<span class="adm-sm">'+ps.length+' online</span>','<div class="ov4-bar">'+Object.keys(RD).map(c=>seg(cnt[c]||0,RD[c][1],RD[c][0])).join('')+seg(unset,'#3b4170','Not set')+'</div>'
+    +'<div class="ov4-legend">'+Object.keys(RD).filter(c=>cnt[c]).map(c=>'<span style="--rc:'+RD[c][1]+'"><i></i>'+RD[c][0]+' '+cnt[c]+'</span>').join('')+(unset?'<span style="--rc:#3b4170"><i></i>Not set '+unset+'</span>':'')+'</div>');
+}
+function ov4Ann(){
+  const a=Object.values(opData.announcements||{}).filter(x=>x&&x.message).sort((x,y)=>y.at-x.at)[0];
+  return ovCard('','Latest announcement','<button type="button" class="btn" data-ad="go" data-ch="announcements">All ▸</button>',a?'<div class="ov4-ann"><b>'+adE(a.title||'COMMAND UPDATE')+'</b> '+adE(String(a.message).slice(0,140))+' <time>'+adAgo(a.at)+'</time></div>':'<div class="hint adm-empty">No announcements yet.</div>');
+}
+function ov4Feed(){
+  const h=ovFeed().replace(/^<section[^>]*><h4>.*?<\/h4>/,'').replace(/<\/section>$/,'');
+  let open=false;try{open=localStorage.getItem('op141.ov.feed')==='1';}catch(_){}
+  return '<details class="card adm-card ov-wide pc-time ov4-feed"'+(open?' open':'')+'><summary>Recent activity</summary>'+h+'</details>';
+}
+document.addEventListener('toggle',e=>{if(e.target.classList&&e.target.classList.contains('ov4-feed'))try{localStorage.setItem('op141.ov.feed',e.target.open?'1':'0');}catch(_){}},true);
+AD_IMPL.overview.sig=(f=>function(){return f.apply(this,arguments)+JSON.stringify([opData.rollcall,opData.timers,opData.levels,dnRecs(),drRecs(),obSt.err]);})(AD_IMPL.overview.sig);
+AD_IMPL.overview.render=function(p){
+  const host=$('adm-ov'),sc=p.querySelector('.adm-scroll');
+  adKeepScroll(sc,()=>{host.innerHTML=ov4Now()+ov4Attention()+ov4Ready()+ovSquads()+ov4Ann()+ovLead()+(tmList().length>1||opAdmin?ovTimers():'')+ov4Feed();});
+};
+
+// ===================== V4.0 · PHONE =====================
+// A bottom bar (Map, Overview, Operations, Messages, More) and, on the map, a quick-action button.
+(function(){
+  const n=document.createElement('nav');n.id='mnav';n.hidden=true;
+  n.innerHTML=[['map','🗺','Map'],['overview','◈','Overview'],['operations','⚑','Ops'],['messages','✎','Chat'],['more','☰','More']].map(([k,i,t])=>'<button type="button" data-mn="'+k+'"><i>'+i+'</i><span>'+t+'</span><b class="mn-n" hidden></b></button>').join('');
+  document.body.appendChild(n);
+  const sh=document.createElement('div');sh.id='mnav-sheet';sh.hidden=true;document.body.appendChild(sh);
+  n.addEventListener('click',e=>{const b=e.target.closest('button[data-mn]');if(!b)return;const k=b.dataset.mn;
+    if(k==='more'){mnavSheet(sh.hidden);return;}
+    mnavSheet(false);if(k==='map')adminShow(false);else adminShow(true,{ch:k});});
+  sh.addEventListener('click',e=>{const b=e.target.closest('button[data-ch]');if(b){mnavSheet(false);adminShow(true,{ch:b.dataset.ch});}else if(e.target===sh)mnavSheet(false);});
+  const fab=document.createElement('div');fab.id='qa-fab';fab.hidden=true;
+  fab.innerHTML='<div class="qa-menu" hidden><button type="button" data-qa="cas">✚ Casualty report</button><button type="button" data-qa="inc">⚠ Incident report</button><button type="button" data-qa="req">⇪ Request to command</button><button type="button" data-qa="ping">◎ Ping the map centre</button><button type="button" data-qa="rc" hidden>📣 Check in</button></div><button type="button" class="qa-main" title="Quick actions">＋</button>';
+  document.body.appendChild(fab);
+  fab.addEventListener('click',e=>{
+    const m=fab.querySelector('.qa-menu');
+    if(e.target.closest('.qa-main')){m.hidden=!m.hidden;const r=rcCur();fab.querySelector('[data-qa=rc]').hidden=!(r&&r.open&&!(r.res||{})[myKey()]);return;}
+    const b=e.target.closest('[data-qa]');if(!b)return;m.hidden=true;const k=b.dataset.qa;
+    if(k==='cas')openReport('casualty');else if(k==='inc')openReport('incident');
+    else if(k==='ping')sendPing((mapCont.clientWidth/2-panX)/scale,(mapCont.clientHeight/2-panY)/scale);
+    else if(k==='rc')rcRespond('P');
+    else if(k==='req'){if(!panelIsOpen())togglePanel(true);const t=document.querySelector('.tabbar button[data-tab=team]');if(t)t.click();setTimeout(()=>{const c=$('command-request-section');if(c)c.scrollIntoView({behavior:'smooth',block:'start'});},250);}
+  });
+})();
+function mnavSheet(on){const sh=$('mnav-sheet');if(!sh)return;sh.hidden=!on;if(on){const fav=v4Fav.list();let h='<div class="mn-sheet">';let grp='';
+  const item=c=>'<button type="button" data-ch="'+c[0]+'" class="'+(adm.on&&adm.ch===c[0]?'on':'')+'"><i>'+c[2]+'</i><span>'+c[1]+'</span></button>';
+  if(fav.length)h+='<div class="mn-grp">PINNED</div><div class="mn-grid">'+fav.map(c=>item(adCh(c))).join('')+'</div>';
+  AD_CH.filter(c=>c[0]!=='career'&&c[0]!=='attendance').forEach(c=>{if(c[3]){if(grp)h+='</div>';h+='<div class="mn-grp">'+c[3]+'</div><div class="mn-grid">';grp=c[3];}h+=item(c);});
+  sh.innerHTML=h+'</div></div>';}}
+function mnavPaint(){
+  try{
+    const n=$('mnav'),fab=$('qa-fab');if(!n)return;
+    const on=!!(mobileQ.matches&&roomPath);n.hidden=!on;document.body.classList.toggle('mnav-on',on);
+    if(fab)fab.hidden=!(on&&!adm.on);
+    const cur=!adm.on?'map':(['overview','operations','messages'].indexOf(adm.ch)>=0?adm.ch:'more');
+    n.querySelectorAll('button[data-mn]').forEach(b=>b.classList.toggle('on',b.dataset.mn===cur));
+    const c=adm.counts||{},tot=adm.total||0,mine={overview:0,operations:c.operations||0,messages:c.messages||0};
+    n.querySelectorAll('button[data-mn]').forEach(b=>{const k=b.dataset.mn,v=k==='more'?Math.max(0,tot-(mine.operations+mine.messages)):(mine[k]||0),e=b.querySelector('.mn-n');e.hidden=!v;e.textContent=v>99?'99+':v;});
+  }catch(_){}
+}
+setInterval(mnavPaint,1500);try{mobileQ.addEventListener('change',mnavPaint);}catch(_){}
+joinRoom=(f=>function(){const r=f.apply(this,arguments);setTimeout(mnavPaint,400);return r;})(joinRoom);
+
+// ===================== V4.0 · LISTS: select several, undo =====================
+var V4B={tk:false,tkSel:new Set(),rp:false,rpSel:new Set()};
+tkCard=(f=>function(t){const h=f.apply(this,arguments);if(!V4B.tk||!t)return h;const id=adSlug(t.id);return h.replace(/^<article([^>]*)>/,'<article$1><label class="bk-ck"><input type="checkbox" data-bk="tk" value="'+id+'"'+(V4B.tkSel.has(id)?' checked':'')+'></label>');})(tkCard);
+AD_IMPL.tasks.render=(f=>function(p){const r=f.apply(this,arguments);try{
+  const bar=p.querySelector('.adm-bar');
+  if(bar&&opEditor&&!bar.querySelector('[data-ad=bk-tk]'))bar.insertAdjacentHTML('beforeend','<button type="button" class="btn" data-ad="bk-tk" title="Select several tasks">☑ Select</button>');
+  let bb=$('bk-tk-bar');if(!bb&&bar){bb=document.createElement('div');bb.id='bk-tk-bar';bb.className='bk-bar';bar.after(bb);}
+  if(bb){bb.hidden=!V4B.tk;bb.innerHTML='<b>'+V4B.tkSel.size+' selected</b><button type="button" class="btn" data-ad="bk-tk-st" data-st="ACTIVE">Accept</button><button type="button" class="btn active" data-ad="bk-tk-st" data-st="DONE">Done</button><button type="button" class="btn" data-ad="bk-tk-st" data-st="OPEN">Reopen</button>'+(opAdmin?'<button type="button" class="btn danger" data-ad="bk-tk-del">Delete</button>':'')+'<span class="adm-grow"></span><button type="button" class="btn" data-ad="bk-tk">Cancel</button>';}
+  const sel=p.querySelector('[data-ad=bk-tk]');if(sel)sel.classList.toggle('active',V4B.tk);
+  if(opAdmin){const c=p.querySelector('.adm-col[data-st=OPEN] .adm-empty');if(c&&!c.querySelector('button'))c.insertAdjacentHTML('beforeend',' <button type="button" class="btn" data-ad="tk-new">＋ New task</button>');}
+}catch(e){console.error('bulk tasks',e);}return r;})(AD_IMPL.tasks.render);
+AD_IMPL.tasks.sig=(f=>function(){return f.apply(this,arguments)+V4B.tk+[...V4B.tkSel].join();})(AD_IMPL.tasks.sig);
+AD_ACT['bk-tk']=()=>{V4B.tk=!V4B.tk;V4B.tkSel.clear();adm.sig.tasks=null;adDraw('tasks',true);};
+AD_ACT['bk-tk-st']=async b=>{const ids=[...V4B.tkSel];if(!ids.length){uiToast('Tick some tasks first.');return;}for(const id of ids)try{await opTaskStatus(id,b.dataset.st);}catch(_){}V4B.tkSel.clear();V4B.tk=false;adm.sig.tasks=null;adDraw('tasks',true);uiToast(ids.length+' task(s) updated.','ok');};
+AD_ACT['bk-tk-del']=async()=>{
+  const ids=[...V4B.tkSel].filter(id=>(opData.tasks||{})[id]);if(!ids.length||!opAdmin)return;
+  if(!await uiDialog({title:'Delete tasks',message:'Delete '+ids.length+' task(s) for everyone?',ok:'Delete',danger:true}))return;
+  const snap=ids.map(id=>[id,JSON.parse(JSON.stringify(opData.tasks[id]))]);
+  ids.forEach(id=>{delete opData.tasks[id];fbDelete(opPath('tasks')+'/'+id).catch(()=>{});});
+  V4B.tkSel.clear();V4B.tk=false;renderTasks();adm.sig.tasks=null;adDraw('tasks',true);
+  uiToastAct(ids.length+' task(s) deleted.','Undo',()=>{snap.forEach(([id,t])=>{opData.tasks=Object.assign({},opData.tasks||{},{[id]:t});fbSet(opPath('tasks')+'/'+id,t).catch(()=>{});});renderTasks();adm.sig.tasks=null;adDraw('tasks',true);uiToast('Tasks are back.','ok');},15000);
+};
+document.addEventListener('change',e=>{
+  const c=e.target.closest&&e.target.closest('[data-bk]');if(!c)return;
+  const set=c.dataset.bk==='tk'?V4B.tkSel:V4B.rpSel;if(c.checked)set.add(c.value);else set.delete(c.value);
+  const bar=c.dataset.bk==='tk'?$('bk-tk-bar'):$('bk-rp-bar');if(bar){const b=bar.querySelector('b');if(b)b.textContent=set.size+' selected';}
+});
+renderReports=(f=>function(){const r=f.apply(this,arguments);try{
+  const host=$('rep-list');if(!host)return r;
+  const flt=$('rep-filter');if(flt&&opEditor&&!flt.querySelector('[data-ad=bk-rp]'))flt.insertAdjacentHTML('beforeend','<button type="button" data-ad="bk-rp" title="Select several reports">☑ Select</button>');
+  let bb=$('bk-rp-bar');if(!bb){bb=document.createElement('div');bb.id='bk-rp-bar';bb.className='bk-bar';host.parentNode.insertBefore(bb,host);}
+  bb.hidden=!V4B.rp;bb.innerHTML='<b>'+V4B.rpSel.size+' selected</b><button type="button" class="btn" data-ad="bk-rp-st" data-st="ACKNOWLEDGED">Acknowledge</button><button type="button" class="btn active" data-ad="bk-rp-st" data-st="RESOLVED">Close</button><button type="button" class="btn" data-ad="bk-rp-dx">⭳ Word</button>'+(opAdmin?'<button type="button" class="btn danger" data-ad="bk-rp-del">Delete</button>':'')+'<span class="adm-grow"></span><button type="button" class="btn" data-ad="bk-rp">Cancel</button>';
+  const sb=flt&&flt.querySelector('[data-ad=bk-rp]');if(sb)sb.classList.toggle('on',V4B.rp);
+  if(V4B.rp)host.querySelectorAll('.rep').forEach(el=>{const b=el.querySelector('[data-rid]');if(!b||el.querySelector('.bk-ck'))return;const id=b.dataset.rid;el.insertAdjacentHTML('afterbegin','<label class="bk-ck"><input type="checkbox" data-bk="rp" value="'+adE(id)+'"'+(V4B.rpSel.has(id)?' checked':'')+'></label>');});
+}catch(e){console.error('bulk reports',e);}return r;})(renderReports);
+AD_ACT['bk-rp']=()=>{V4B.rp=!V4B.rp;V4B.rpSel.clear();renderReports();};
+AD_ACT['bk-rp-st']=b=>{const ids=[...V4B.rpSel].filter(id=>(opData.reports||{})[id]);if(!ids.length||!opEditor){uiToast('Tick some reports first.');return;}
+  const me=opData.people&&opData.people[clientId],patch={status:b.dataset.st,handledBy:me?pFull(me):'COMMAND',handledAt:Date.now(),note:''};
+  ids.forEach(id=>{Object.assign(opData.reports[id],patch);fbPatch(opPath('reports')+'/'+id,patch).catch(()=>{});});
+  V4B.rpSel.clear();V4B.rp=false;renderReports();uiToast(ids.length+' report(s) updated.','ok');};
+AD_ACT['bk-rp-dx']=()=>{const l=[...V4B.rpSel].map(id=>(opData.reports||{})[id]).filter(Boolean);if(!l.length){uiToast('Tick some reports first.');return;}dxReports(l,'Selected reports');};
+AD_ACT['bk-rp-del']=async()=>{
+  const ids=[...V4B.rpSel].filter(id=>(opData.reports||{})[id]);if(!ids.length||!opAdmin)return;
+  if(!await uiDialog({title:'Delete reports',message:'Delete '+ids.length+' report(s) for everyone?',ok:'Delete',danger:true}))return;
+  const snap=ids.map(id=>[id,JSON.parse(JSON.stringify(opData.reports[id]))]);
+  ids.forEach(id=>{delete opData.reports[id];fbDelete(opPath('reports')+'/'+id).catch(()=>{});});
+  V4B.rpSel.clear();V4B.rp=false;renderReports();
+  uiToastAct(ids.length+' report(s) deleted.','Undo',()=>{snap.forEach(([id,r])=>{opData.reports=Object.assign({},opData.reports||{},{[id]:r});fbSet(opPath('reports')+'/'+id,r).catch(()=>{});});renderReports();uiToast('Reports are back.','ok');},15000);
+};
+// undo after deleting one task, report, announcement or operation
+function v4Undo(label,snap,restore){uiToastAct(label,'Undo',()=>{try{restore(snap);uiToast('It is back.','ok');}catch(e){uiToast('Could not bring it back.');}},15000);}
+opTaskDelete=(f=>async function(id){const t=(opData.tasks||{})[id],snap=t&&JSON.parse(JSON.stringify(t));const r=await f.apply(this,arguments);
+  if(snap&&!(opData.tasks||{})[id])v4Undo('Task deleted.',snap,s=>{opData.tasks=Object.assign({},opData.tasks||{},{[id]:s});fbSet(opPath('tasks')+'/'+id,s).catch(()=>{});renderTasks();adm.sig.tasks=null;if(adm.on)adDraw(adm.ch,true);});return r;})(opTaskDelete);
+repDelete=(f=>async function(id){const x=(opData.reports||{})[id],snap=x&&JSON.parse(JSON.stringify(x));const r=await f.apply(this,arguments);
+  if(snap&&!(opData.reports||{})[id])v4Undo('Report removed.',snap,s=>{opData.reports=Object.assign({},opData.reports||{},{[id]:s});fbSet(opPath('reports')+'/'+id,s).catch(()=>{});renderReports();});return r;})(repDelete);
+AD_ACT['ann-del']=(f=>async function(b){const at=b.dataset.at,a=(opData.announcements||{})[at],snap=a&&JSON.parse(JSON.stringify(a));const r=await f.apply(this,arguments);
+  if(snap&&!(opData.announcements||{})[at])v4Undo('Announcement deleted.',snap,s=>{opData.announcements=Object.assign({},opData.announcements||{},{[at]:s});fbSet(opPath('announcements')+'/'+at,s).catch(()=>{});adm.sig.announcements=null;if(adm.on)adDraw(adm.ch,true);});return r;})(AD_ACT['ann-del']);
+adOpDelete=(f=>async function(id){const o=(opData.operations||{})[id],snap=o&&JSON.parse(JSON.stringify(o)),tk=o?adTasksOf(id).map(t=>[t.id,t.objId||null]):[];const r=await f.apply(this,arguments);
+  if(snap&&!(opData.operations||{})[id])v4Undo('Operation deleted.',snap,s=>{opData.operations=Object.assign({},opData.operations||{},{[id]:s});fbSet(opPath('operations')+'/'+id,s).catch(()=>{});
+    tk.forEach(([tid,ob])=>{const t=(opData.tasks||{})[tid];if(t){t.opId=id;if(ob)t.objId=ob;fbPatch(opPath('tasks')+'/'+tid,{opId:id,objId:ob}).catch(()=>{});}});adOpAfter();});return r;})(adOpDelete);
+
+// ===================== V4.0 · WHY A SESSION ENDED =====================
+// Kept on this device (op141.sesslog, last 12): leaving, a kick or ban, the browser closing or reloading the page (and whether it
+// was in the background), a tab the browser discarded to save memory, and whether the automatic rejoin worked. The lobby shows the last one.
+const SL_KEY='op141.sesslog';
+function slList(){try{return JSON.parse(localStorage.getItem(SL_KEY)||'[]');}catch(_){return [];}}
+function slAdd(why,kind){try{const l=slList();l.unshift({at:Date.now(),why,kind:kind||'',room:String(roomName||roomPath||'').replace(/^rooms\//,'')});localStorage.setItem(SL_KEY,JSON.stringify(l.slice(0,12)));}catch(_){}}
+sessLeaveNow=(f=>function(msg){slAdd(msg||'You left the room.',msg?'removed':'left');return f.apply(this,arguments);})(sessLeaveNow);
+window.addEventListener('pagehide',e=>{if(!roomPath||e.persisted)return;slAdd(document.visibilityState==='hidden'?'The browser closed or reloaded the page while it was in the background (phones do this to save memory).':'The page was closed or reloaded.','unload');});
+(function(){
+  try{if(document.wasDiscarded)slAdd('The browser discarded this tab to save memory while it was in the background.','discard');}catch(_){}
+  const l=slList()[0];if(!l)return;
+  // did the automatic rejoin work?
+  setTimeout(()=>{try{const x=slList()[0];if(!x||x.at!==l.at||x.re)return;x.re=roomPath?'ok':'no';const all=slList();all[0]=x;localStorage.setItem(SL_KEY,JSON.stringify(all));slShow();}catch(_){}},15000);
+})();
+function slShow(){
+  try{
+    const c=document.querySelector('#lobby-overlay .lobby-card');if(!c)return;
+    let e=$('sess-why');if(!e){e=document.createElement('div');e.id='sess-why';const p=c.querySelector('p:last-child');c.insertBefore(e,p||null);}
+    const l=slList()[0];if(!l||Date.now()-l.at>7*864e5){e.hidden=true;return;}
+    e.hidden=false;e.innerHTML='<b>Last session</b> ('+adE(adAgo(l.at))+(l.room?' · '+adE(l.room):'')+'): '+adE(l.why)+(l.re==='ok'?' <span class="dn-ok">Rejoined automatically.</span>':l.re==='no'?' <span class="dn-bad">The automatic rejoin did not finish.</span>':'');
+  }catch(_){}
+}
+slShow();setInterval(()=>{const o=$('lobby-overlay');if(o&&!o.classList.contains('hidden'))slShow();},5000);
+TOOLS_PAINT.push(function(){const l=slList();TOOLS_CARD('sl-card','<h4>Connection log <small>this device</small></h4>'+(l.length?l.slice(0,8).map(x=>'<div class="tl-li"><span><small>'+adE(adStamp(x.at))+'</small> '+adE(x.why)+(x.re==='ok'?' <span class="dn-ok">rejoined</span>':x.re==='no'?' <span class="dn-bad">no rejoin</span>':'')+'</span></div>').join(''):'<div class="hint">Nothing recorded yet.</div>'));});
+TOOLS_SIG.push(()=>slList().length+'.'+((slList()[0]||{}).re||''));
+
+// ===================== V4.0 · NIGHTLY BACKUPS =====================
+// The Worker copies the room every night and keeps 14 nights (worker/backup.js). Settings lists them; Restore uses the normal restore.
+var NB={days:null,err:'',busy:0,at:0};
+const nbUrl=()=>{const u=dcUrl();return /^https:\/\//.test(u)?u.replace(/discord\/?$/,'backup'):'';};
+async function nbCall(body){
+  const u=nbUrl();if(!u||!dcSecret())throw new Error('Needs the Discord relay address and secret on this device (Discord → Set up…).');
+  const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json','X-Relay-Secret':dcSecret()},body:JSON.stringify(Object.assign({room:String(roomPath||'').replace(/^rooms\//,'')},body||{}))});
+  if(body&&body.day){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();}
+  const j=await r.json().catch(()=>null);if(!r.ok||!j||!j.ok)throw new Error((j&&j.error)||('HTTP '+r.status));return j;
+}
+async function nbLoad(){NB.busy=1;nbPaint();try{const j=await nbCall({});NB.days=j.days||[];NB.err='';}catch(e){NB.err=e.message;}NB.busy=0;NB.at=Date.now();nbPaint();}
+function nbPaint(){
+  if(!opAdmin){const c=$('nb-card');if(c)c.remove();return;}
+  const kb=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+  TOOLS_CARD('nb-card','<h4>Nightly backups <small>kept 14 nights</small></h4>'
+    +(NB.err?'<div class="hint dn-bad">'+adE(NB.err)+'</div>':'')
+    +(NB.days===null?'<div class="hint">The Worker saves this room every night. Press Check to see them.</div>':NB.days.length?NB.days.map(d=>'<div class="tl-li"><span><b>'+adE(d.day)+'</b> <small>'+kb(d.size)+'</small></span><span><button type="button" class="btn" data-ad="nb-get" data-day="'+adE(d.day)+'">⭳</button><button type="button" class="btn" data-ad="nb-restore" data-day="'+adE(d.day)+'">Restore…</button></span></div>').join(''):'<div class="hint">No nightly backup yet.</div>')
+    +'<div class="btn-row" style="margin-top:8px"><button type="button" class="btn" data-ad="nb-load"'+(NB.busy?' disabled':'')+'>'+(NB.busy?'Checking…':'↻ Check')+'</button><button type="button" class="btn" data-ad="nb-now"'+(NB.busy?' disabled':'')+'>Back up now</button></div>',true);
+}
+TOOLS_PAINT.push(nbPaint);TOOLS_SIG.push(()=>JSON.stringify(NB)+opAdmin);
+AD_ACT['nb-load']=()=>nbLoad();
+AD_ACT['nb-now']=async()=>{NB.busy=1;nbPaint();try{await nbCall({now:true});uiToast('Backed up now.','ok');}catch(e){uiToast('Backup failed: '+e.message);}NB.busy=0;nbLoad();};
+AD_ACT['nb-get']=async b=>{try{const t=await nbCall({day:b.dataset.day});downloadBlob(new Blob([t],{type:'application/json'}),'atak-room-'+String(roomPath).replace(/^rooms\//,'')+'-'+b.dataset.day+'.json');}catch(e){uiToast('Could not get it: '+e.message);}};
+AD_ACT['nb-restore']=async b=>{try{const t=await nbCall({day:b.dataset.day});await bkImport(new File([t],'nightly-'+b.dataset.day+'.json',{type:'application/json'}));}catch(e){uiToast('Could not get it: '+e.message);}};
 V27=true;
 try{renderIntelList();renderGroups();renderRecent();renderRoster();renderSquads();renderReports();renderMarkerList();updateUndoUI();updateSelBar();updateStatusHint();drawMarkers();}catch(e){console.error('V2.7 init',e);}
 
