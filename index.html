@@ -3180,16 +3180,17 @@ function drawMarkerOn(c,m,opt){
   if(!nameVisible(m))return;
   const lbl=AREA_TYPES.includes(type)?((m.label&&m.label!==m.type&&!(PERIM[type]&&m.label===SYMBOL_NAMES[type]))?m.label:''):(m.label||m.type);
   if(!lbl||(m.labelSize!==undefined&&m.labelSize!==null&&m.labelSize!==''&&Number(m.labelSize)===0))return;
-  const txt=lbl.length>24?lbl.slice(0,23)+'…':lbl,lsz=(m.labelSize===undefined||m.labelSize===null||m.labelSize==='')?1:Math.max(0,Math.min(6,Number(m.labelSize)||0)),fs=Math.max(9,Math.max(10,R*.78)*lsz),tcol=/^#[0-9a-f]{6}$/i.test(m.labelColor||'')?m.labelColor:'#f2f5ff';
+  if(R*.78*((m.labelSize===undefined||m.labelSize===null||m.labelSize==='')?1:Math.min(6,Number(m.labelSize)||0))*scale<3)return;   // V4.6.1: too small to read at this zoom
+  const txt=lbl.length>24?lbl.slice(0,23)+'…':lbl,lsz=(m.labelSize===undefined||m.labelSize===null||m.labelSize==='')?1:Math.max(0,Math.min(6,Number(m.labelSize)||0)),fs=R*.78*lsz,tcol=/^#[0-9a-f]{6}$/i.test(m.labelColor||'')?m.labelColor:'#f2f5ff';
   c.font='700 '+fs+'px Rajdhani,sans-serif';c.textAlign='center';c.textBaseline='middle';
   // V4.6: the box follows the text size (it had a fixed 10×5 px padding: small labels sat in a big box, big ones were cramped)
-  const lm=lblMetrics(c,fs),px=fs*.42+3,py=fs*.17+2,w=c.measureText(txt).width+px*2,h=lm.a+lm.d+py*2,ly=y+ext+3+fs*.06+h/2;
-  c.shadowBlur=0;rrect(c,x-w/2,ly-h/2,w,h,Math.max(3,fs*.28));c.fillStyle='rgba(6,9,28,.8)';c.fill();c.lineWidth=Math.max(1,fs/18);c.strokeStyle=col+'99';c.stroke();
+  const lm=lblMetrics(c,fs),px=fs*.32+1,py=fs*.16+.5,w=c.measureText(txt).width+px*2,h=lm.a+lm.d+py*2,ly=y+ext+2+fs*.06+h/2;
+  c.shadowBlur=0;rrect(c,x-w/2,ly-h/2,w,h,Math.max(1.5,fs*.26));c.fillStyle='rgba(6,9,28,.8)';c.fill();c.lineWidth=Math.max(1,fs/18);c.strokeStyle=col+'99';c.stroke();
   c.textBaseline='alphabetic';c.fillStyle=tcol;c.fillText(txt,x,ly+(lm.a-lm.d)/2);
 }
 // V4.6: cap height and descent of the label font at a size (measured on 'H' and 'g', cached)
 const LBL_M={};
-function lblMetrics(c,fs){const key=c.font;let m=LBL_M[key];if(!m){const H=c.measureText('H'),g=c.measureText('g');m=LBL_M[key]={a:H.actualBoundingBoxAscent||fs*.62,d:g.actualBoundingBoxDescent||fs*.16};}return m;}
+function lblMetrics(c,fs){const key=c.font;let m=LBL_M[key];if(!m){const b=c.textBaseline;c.textBaseline='alphabetic';const H=c.measureText('H'),g=c.measureText('g');c.textBaseline=b;m=LBL_M[key]={a:H.actualBoundingBoxAscent||fs*.62,d:g.actualBoundingBoxDescent||fs*.16};}return m;}
 // ---- symbol palette ----
 const PALETTE=[
  ['Tactical',[['LZ','LZ'],['HQ','HQ'],['OBJ','Objective'],['ENY','Enemy'],['CASEVAC','Casevac'],['CACHE','Cache'],['PHASE','Phase line'],['WP','Waypoint'],['NOTE','Note'],['PRIORITY','Priority target'],['INCIDENT','Incident']]],
@@ -15690,6 +15691,7 @@ uiToast=(f=>function(msg,kind){const m=String(msg||'');if(kind==='ok'&&/intel im
 
 // ===================== V4.4 · UPDATE LOG =====================
 const UPD=[
+  ['2.6.1','Marker names fixed: the text sits in the middle of its box, the box fits the text, and the name follows the marker\'s size and the Name text size setting'],
   ['2.6','Admins set a player\'s or a whole squad\'s radio (Roster → the player or squad) · direct broadcasts to chosen players or squads, with acknowledgements (Announcements, or Roster) · marker label boxes now fit their text at every size'],
   ['2.5','Custom maps: an admin adds any picture as a map and fits ATAK\'s grid onto the picture\'s own grid (Tools → Map → Add a custom map)'],
   ['2.4','Reserves fill themselves with ranked players who have no unit · right-click menus in Admin · the radio pill dims when you are not in Discord voice · a much bigger replay map · positions read BRM5\'s grid the right way up · intel images open only when the uploader shows them · this update log'],
